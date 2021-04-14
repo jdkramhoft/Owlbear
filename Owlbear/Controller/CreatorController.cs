@@ -12,7 +12,7 @@ using Owlbear.Service;
 namespace Owlbear.Controller
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/creators")]
     public class CreatorController : ControllerBase
     {
 
@@ -27,16 +27,34 @@ namespace Owlbear.Controller
             _creatorService = creatorService;
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public async Task<CreatorDto> Get(int id)
         {
             return _mapper.Map<CreatorDto>(await _creatorService.GetCreatorAsync(id));
+        }
+        
+        [HttpGet]
+        public async Task<List<CreatorDto>> GetAll()
+        {
+            return _mapper.Map<List<CreatorDto>>(await _creatorService.GetAllCreatorsAsync());
         }
 
         [HttpPost]
         public async Task<CreatorDto> Post(CreateCreatorDto dto)
         {
             return _mapper.Map<CreatorDto>(await _creatorService.AddCreatorAsync(dto));
+        }
+        
+        [HttpPut("{id}")]
+        public async Task<CreatorDto> Update(int id, UpdateCreatorDto dto)
+        {
+            return _mapper.Map<CreatorDto>(await _creatorService.UpdateCreatorAsync(id, dto));
+        }
+        
+        [HttpDelete("{id}")]
+        public async Task<CreatorDto> Delete(int id)
+        {
+            return _mapper.Map<CreatorDto>(await _creatorService.DeleteCreatorAsync(id));
         }
     }
 }

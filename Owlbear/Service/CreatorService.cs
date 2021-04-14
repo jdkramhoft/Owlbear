@@ -32,9 +32,9 @@ namespace Owlbear.Service
             return await _creatorRepository.AddAsync(entity);
         }
 
-        public async Task<Creator> UpdateCreatorAsync(UpdateCreatorDto creator)
+        public async Task<Creator> UpdateCreatorAsync(int id, UpdateCreatorDto creator)
         {
-            var entity = await _creatorRepository.GetAsync(creator.Id);
+            var entity = await _creatorRepository.GetAsync(id);
             entity.Name = creator.Name;
             return await _creatorRepository.UpdateAsync(entity);
         }

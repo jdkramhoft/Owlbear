@@ -8,7 +8,9 @@ namespace Owlbear.Mapping
     {
         public CreatorProfile()
         {
-            CreateMap<Creator, CreatorDto>();
+            CreateMap<Creator, CreatorDto>().ForMember(
+                dto => dto.Id,
+                opt => opt.MapFrom(dto => dto.CreatorId));
         }
     }
 }
