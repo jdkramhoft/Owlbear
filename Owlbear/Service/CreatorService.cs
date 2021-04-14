@@ -16,13 +16,15 @@ namespace Owlbear.Service
         private readonly ICreatorRepository _creatorRepository;
         private readonly IRemoteTwitterRepository _remoteTwitterRepository;
         private readonly IRemoteTwitchRepository _remoteTwitchRepository;
+        private readonly IRemoteYoutubeRepository _remoteYoutubeRepository;
 
         public CreatorService(ICreatorRepository creatorRepository, IRemoteTwitterRepository remoteTwitterRepository,
-            IRemoteTwitchRepository remoteTwitchRepository)
+            IRemoteTwitchRepository remoteTwitchRepository, IRemoteYoutubeRepository remoteYoutubeRepository)
         {
             _creatorRepository = creatorRepository;
             _remoteTwitterRepository = remoteTwitterRepository;
             _remoteTwitchRepository = remoteTwitchRepository;
+            _remoteYoutubeRepository = remoteYoutubeRepository;
         }
 
         public async Task<List<Creator>> GetAllCreatorsAsync()
@@ -48,6 +50,11 @@ namespace Owlbear.Service
             {
                 var twitch = await _remoteTwitchRepository.GetTwitch(creator.TwitchHandle);
                 entity.Twitch = twitch;
+            }
+            if (creator.YoutubeHandle != null)
+            {
+                var youtube = await _remoteYoutubeRepository.GetYoutube(creator.YoutubeHandle);
+                entity.Youtube = youtube;
             }
             return await _creatorRepository.AddAsync(entity);
         }

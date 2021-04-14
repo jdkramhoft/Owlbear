@@ -11,5 +11,6 @@ namespace Owlbear.Model
         public string Name { get; set; }
         public Twitter Twitter { get; set; }
         public Twitch Twitch { get; set; }
+        public Youtube Youtube { get; set; }
     }
 }

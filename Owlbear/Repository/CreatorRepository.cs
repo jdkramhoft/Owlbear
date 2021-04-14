@@ -20,7 +20,8 @@ namespace Owlbear.Repository
             {
                 return Context.Set<Creator>()
                     .Include(creator => creator.Twitter)
-                    .Include(creator => creator.Twitch);
+                    .Include(creator => creator.Twitch)
+                    .Include(creator => creator.Youtube);
             }
             catch (Exception ex)
             {
@@ -35,6 +36,7 @@ namespace Owlbear.Repository
                 var entity = await Context.Creators
                     .Include(creator => creator.Twitter)
                     .Include(creator => creator.Twitch)
+                    .Include(creator => creator.Youtube)
                     .FirstAsync(creator => creator.CreatorId == id);
                 if (entity == null) throw new RepositoryException($"Couldn't find entity with id: {id}");
                 return entity;
