@@ -2,14 +2,15 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Owlbear.Model;
 
 namespace Owlbear.Repository
 {
     public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class, new()
     {
-        private readonly DbContext _context;
+        private readonly OwlbearContext _context;
 
-        public BaseRepository(DbContext context)
+        public BaseRepository(OwlbearContext context)
         {
             _context = context;
         }
@@ -26,10 +27,8 @@ namespace Owlbear.Repository
             }
         }
 
-        public async Task<TEntity> GetAsync(string id)
+        public async Task<TEntity> GetAsync(int id)
         {
-            if (id == null) throw new ArgumentNullException(nameof(id));
-
             try
             {
                 var entity = await _context.FindAsync<TEntity>(id);
@@ -75,10 +74,8 @@ namespace Owlbear.Repository
             }
         }
 
-        public async Task<TEntity> DeleteAsync(string id)
+        public async Task<TEntity> DeleteAsync(int id)
         {
-            if (id == null) throw new ArgumentNullException(nameof(id));
-
             try
             {
                 var entity = await GetAsync(id);
