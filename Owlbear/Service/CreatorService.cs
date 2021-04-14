@@ -15,13 +15,14 @@ namespace Owlbear.Service
     {
         private readonly ICreatorRepository _creatorRepository;
         private readonly IRemoteTwitterRepository _remoteTwitterRepository;
-        private readonly OwlbearContext _context;
+        private readonly IRemoteTwitchRepository _remoteTwitchRepository;
 
-        public CreatorService(ICreatorRepository creatorRepository, IRemoteTwitterRepository remoteTwitterRepository, OwlbearContext context)
+        public CreatorService(ICreatorRepository creatorRepository, IRemoteTwitterRepository remoteTwitterRepository,
+            IRemoteTwitchRepository remoteTwitchRepository)
         {
             _creatorRepository = creatorRepository;
             _remoteTwitterRepository = remoteTwitterRepository;
-            _context = context;
+            _remoteTwitchRepository = remoteTwitchRepository;
         }
 
         public async Task<List<Creator>> GetAllCreatorsAsync()
@@ -37,29 +38,18 @@ namespace Owlbear.Service
         public async Task<Creator> AddCreatorAsync(CreateCreatorDto creator)
         {
             var entity = new Creator {Name = creator.Name};
-            // Check if twitter already exists? twitter should be unique?
+            // Check if twitter etc already exists? twitter etc should be unique?
             if (creator.TwitterHandle != null)
             {
                 var twitter = await _remoteTwitterRepository.GetTwitter(creator.TwitterHandle);
                 entity.Twitter = twitter;
             }
-            return await _creatorRepository.AddAsync(entity);
-            /*
-
-            await using var transaction = await _context.Database.BeginTransactionAsync();
-            try
+            if (creator.TwitchHandle != null)
             {
-                var creatorTask = _creatorRepository.AddAsync(entity);
-                var twitterTask = _twitterRepository.AddAsync(entity.Twitter);
-                Task.WaitAll(creatorTask, twitterTask);
-                await transaction.CommitAsync();
-                return await creatorTask;
+                var twitch = await _remoteTwitchRepository.GetTwitch(creator.TwitchHandle);
+                entity.Twitch = twitch;
             }
-            catch
-            {
-                await transaction.RollbackAsync();
-                throw;
-            }*/
+            return await _creatorRepository.AddAsync(entity);
         }
 
         public async Task<Creator> UpdateCreatorAsync(int id, UpdateCreatorDto creator)

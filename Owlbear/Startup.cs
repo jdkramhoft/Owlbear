@@ -38,6 +38,7 @@ namespace Owlbear
             services.AddTransient(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddTransient<ICreatorRepository, CreatorRepository>();
             services.AddTransient<IRemoteTwitterRepository, RemoteTwitterRepository>();
+            services.AddTransient<IRemoteTwitchRepository, RemoteTwitchRepository>();
             
             services.AddTransient<ICreatorService, CreatorService>();
             

@@ -10,7 +10,10 @@ namespace Owlbear.Utilities
 {
     public class NetUtils
     {
+        public static readonly string TwitchBearerToken = Environment.GetEnvironmentVariable("TWITCH_BEARER") ?? throw new InvalidOperationException();
+        public static readonly string TwitchClientId = Environment.GetEnvironmentVariable("TWITCH_CLIENT_ID") ?? throw new InvalidOperationException();
         public static readonly string TwitterBearerToken = Environment.GetEnvironmentVariable("TWITTER_BEARER") ?? throw new InvalidOperationException();
+
         public static readonly HttpClient Client = new();
 
         public class QueryBuilder : SortedDictionary<string, ParameterList>

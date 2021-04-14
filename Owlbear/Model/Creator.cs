@@ -10,5 +10,6 @@ namespace Owlbear.Model
         [Required]
         public string Name { get; set; }
         public Twitter Twitter { get; set; }
+        public Twitch Twitch { get; set; }
     }
 }
