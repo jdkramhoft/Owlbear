@@ -25,9 +25,53 @@ namespace Owlbear.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("TwitterId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("CreatorId");
 
+                    b.HasIndex("TwitterId");
+
                     b.ToTable("Creators");
+                });
+
+            modelBuilder.Entity("Owlbear.Model.Twitter", b =>
+                {
+                    b.Property<int>("TwitterId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Followers")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Handle")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("RemoteId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("TwitterId");
+
+                    b.ToTable("Twitter");
+                });
+
+            modelBuilder.Entity("Owlbear.Model.Creator", b =>
+                {
+                    b.HasOne("Owlbear.Model.Twitter", "Twitter")
+                        .WithMany()
+                        .HasForeignKey("TwitterId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Twitter");
                 });
 #pragma warning restore 612, 618
         }

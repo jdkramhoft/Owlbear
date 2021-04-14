@@ -3,5 +3,6 @@
     public class UpdateCreatorDto
     {
         public string Name { get; set; }
+        public string TwitterHandle { get; set; }
     }
 }

@@ -20,7 +20,7 @@ namespace Owlbear.Controller
         private readonly IMapper _mapper;
         private readonly ICreatorService _creatorService;
 
-        public CreatorController(ILogger<CreatorController> logger, IMapper mapper, ICreatorService creatorService)
+        public CreatorController(ILogger<CreatorController> logger,OwlbearContext context, IMapper mapper, ICreatorService creatorService)
         {
             _logger = logger;
             _mapper = mapper;
@@ -36,6 +36,7 @@ namespace Owlbear.Controller
         [HttpGet]
         public async Task<List<CreatorDto>> GetAll()
         {
+            
             return _mapper.Map<List<CreatorDto>>(await _creatorService.GetAllCreatorsAsync());
         }
 

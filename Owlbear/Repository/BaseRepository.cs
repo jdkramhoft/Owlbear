@@ -8,18 +8,18 @@ namespace Owlbear.Repository
 {
     public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class, new()
     {
-        private readonly OwlbearContext _context;
+        protected readonly OwlbearContext Context;
 
         public BaseRepository(OwlbearContext context)
         {
-            _context = context;
+            Context = context;
         }
 
         public IQueryable<TEntity> GetAll()
         {
             try
             {
-                return _context.Set<TEntity>();
+                return Context.Set<TEntity>();
             }
             catch (Exception ex)
             {
@@ -31,13 +31,12 @@ namespace Owlbear.Repository
         {
             try
             {
-                var entity = await _context.FindAsync<TEntity>(id);
+                var entity = await Context.FindAsync<TEntity>(id);
                 if (entity == null) throw new RepositoryException($"Couldn't find entity with id: {id}");
                 return entity;
             }
-            catch (Exception ex)
+            catch (Exception ex) when (ex is not RepositoryException)
             {
-                if (ex is RepositoryException) throw;
                 throw new RepositoryException($"Couldn't retrieve entity: {ex.Message}");
             }
         }
@@ -48,8 +47,8 @@ namespace Owlbear.Repository
 
             try
             {
-                await _context.AddAsync(entity);
-                await _context.SaveChangesAsync();
+                await Context.AddAsync(entity);
+                await Context.SaveChangesAsync();
                 return entity;
             }
             catch (Exception ex)
@@ -64,8 +63,8 @@ namespace Owlbear.Repository
 
             try
             {
-                _context.Update(entity);
-                await _context.SaveChangesAsync();
+                Context.Update(entity);
+                await Context.SaveChangesAsync();
                 return entity;
             }
             catch (Exception ex)
@@ -79,8 +78,8 @@ namespace Owlbear.Repository
             try
             {
                 var entity = await GetAsync(id);
-                _context.Remove(entity);
-                await _context.SaveChangesAsync();
+                Context.Remove(entity);
+                await Context.SaveChangesAsync();
                 return entity;
             }
             catch (Exception ex)

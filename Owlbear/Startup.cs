@@ -14,6 +14,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Owlbear.Model;
 using Owlbear.Repository;
+using Owlbear.Repository.Remote;
 using Owlbear.Service;
 
 namespace Owlbear
@@ -35,6 +36,7 @@ namespace Owlbear
             
             services.AddTransient(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddTransient<ICreatorRepository, CreatorRepository>();
+            services.AddTransient<IRemoteTwitterRepository, RemoteTwitterRepository>();
             
             services.AddTransient<ICreatorService, CreatorService>();
             
