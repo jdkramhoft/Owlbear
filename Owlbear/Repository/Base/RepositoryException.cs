@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Owlbear.Repository
+namespace Owlbear.Repository.Base
 {
     public class RepositoryException : Exception
     {

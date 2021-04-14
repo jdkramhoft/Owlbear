@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 
-namespace Owlbear.Repository
+namespace Owlbear.Repository.Base
 {
     public interface IBaseRepository<TEntity> where TEntity : class, new()
     {

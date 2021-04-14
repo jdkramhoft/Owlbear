@@ -14,6 +14,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Owlbear.Model;
 using Owlbear.Repository;
+using Owlbear.Repository.Base;
 using Owlbear.Repository.Remote;
 using Owlbear.Service;
 

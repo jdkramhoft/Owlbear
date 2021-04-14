@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Owlbear.Model;
+using Owlbear.Repository.Base;
 
 namespace Owlbear.Repository
 {

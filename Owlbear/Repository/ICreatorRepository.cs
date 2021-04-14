@@ -1,4 +1,5 @@
 ﻿using Owlbear.Model;
+using Owlbear.Repository.Base;
 
 namespace Owlbear.Repository
 {

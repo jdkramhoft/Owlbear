@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 using Owlbear.Model;
 
-namespace Owlbear.Repository
+namespace Owlbear.Repository.Base
 {
     public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class, new()
     {
