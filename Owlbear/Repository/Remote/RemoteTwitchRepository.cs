@@ -28,6 +28,7 @@ namespace Owlbear.Repository.Remote
         public async Task<Twitch> GetTwitch(string handle)
         {
             var user = await GetUser(handle);
+            if (user.data == null || user.data.Count == 0) return null;
             var followers = await GetFollowers(user.data[0].id);
             var twitch = _mapper.Map<RemoteTwitchUserResponseDto, Twitch>(user);
             _mapper.Map(followers, twitch);
