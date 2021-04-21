@@ -12,18 +12,19 @@
 
     <ItemGroup>
       <Compile Include="..\Owlbear\Model\Creator.cs">
-        <Link>Data\Model\Creator.cs</Link>
+        <Link>Data\Creator.cs</Link>
       </Compile>
       <Compile Include="..\Owlbear\Model\Twitch.cs">
-        <Link>Data\Model\Twitch.cs</Link>
+        <Link>Data\Twitch.cs</Link>
       </Compile>
       <Compile Include="..\Owlbear\Model\Twitter.cs">
-        <Link>Data\Model\Twitter.cs</Link>
+        <Link>Data\Twitter.cs</Link>
       </Compile>
       <Compile Include="..\Owlbear\Model\Youtube.cs">
-        <Link>Data\Model\Youtube.cs</Link>
+        <Link>Data\Youtube.cs</Link>
       </Compile>
     </ItemGroup>
+
 
 
 </Project>

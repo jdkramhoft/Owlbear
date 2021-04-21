@@ -16,7 +16,7 @@ namespace Twitterjack.Data.Access
 
         //private static readonly TwitterClient Client = new TwitterClient(WebConfig.TwitterApiKey, WebConfig.TwitterApiSecret, WebConfig.TwitterAccessToken, WebConfig.TwitterAccessSecret);
         private readonly HttpClient _client = WebUtils.Client;
-
+        
         public async Task<List<Creator>> GetCreators()
         {
             using var request = new HttpRequestMessage(HttpMethod.Get, CreatorApi);
