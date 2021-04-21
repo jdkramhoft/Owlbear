@@ -9,6 +9,32 @@
     <ItemGroup>
       <PackageReference Include="LiveCharts.WinForms" Version="0.9.7.1" />
       <PackageReference Include="Maikebing.System.Windows.Forms.DataVisualization" Version="5.0.1" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.5" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Include="..\Owlbear\Dto\Creator\CreateCreatorDto.cs">
+        <Link>DataFromWeb\Dto\CreateCreatorDto.cs</Link>
+      </Compile>
+      <Compile Include="..\Owlbear\Dto\Creator\CreatorDto.cs">
+        <Link>DataFromWeb\Dto\CreatorDto.cs</Link>
+      </Compile>
+      <Compile Include="..\Owlbear\Dto\Creator\UpdateCreatorDto.cs">
+        <Link>DataFromWeb\Dto\UpdateCreatorDto.cs</Link>
+      </Compile>
+      <Compile Include="..\Owlbear\Model\Creator.cs">
+        <Link>DataFromWeb\Model\Creator.cs</Link>
+      </Compile>
+      <Compile Include="..\Owlbear\Model\Twitch.cs">
+        <Link>DataFromWeb\Model\Twitch.cs</Link>
+      </Compile>
+      <Compile Include="..\Owlbear\Model\Twitter.cs">
+        <Link>DataFromWeb\Model\Twitter.cs</Link>
+      </Compile>
+      <Compile Include="..\Owlbear\Model\Youtube.cs">
+        <Link>DataFromWeb\Model\Youtube.cs</Link>
+      </Compile>
     </ItemGroup>
 
 </Project>

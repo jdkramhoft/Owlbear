@@ -11,6 +11,15 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Compile Include="..\Owlbear\Dto\Creator\CreateCreatorDto.cs">
+        <Link>Data\CreateCreatorDto.cs</Link>
+      </Compile>
+      <Compile Include="..\Owlbear\Dto\Creator\CreatorDto.cs">
+        <Link>Data\CreatorDto.cs</Link>
+      </Compile>
+      <Compile Include="..\Owlbear\Dto\Creator\UpdateCreatorDto.cs">
+        <Link>Data\UpdateCreatorDto.cs</Link>
+      </Compile>
       <Compile Include="..\Owlbear\Model\Creator.cs">
         <Link>Data\Creator.cs</Link>
       </Compile>

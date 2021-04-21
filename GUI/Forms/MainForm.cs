@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using GUI.DataFromWeb;
 
 namespace GUI
 {
@@ -32,7 +33,8 @@ namespace GUI
         private async void Form1_Load(object sender, EventArgs e)
         {
             var twitterStats = await Program.TwitterStats();
-            label11.Text = twitterStats.ToString();
+            var better = await new CreatorWebServiceThing().GetCreator(1);
+            label11.Text = better.Twitter.Followers.ToString();
         }
         
         private void button2_Click(object sender, EventArgs e)
