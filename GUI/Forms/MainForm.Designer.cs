@@ -1,0 +1,760 @@
+﻿using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.IO;
+
+namespace GUI
+{
+    partial class MainForm
+    {
+        /// <summary>i
+        ///  Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        ///  Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+
+            base.Dispose(disposing);
+        }
+
+        public void LoadResources()
+        {
+            var path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
+            pictureBox1.Image = Image.FromFile($@"{path}\Images\pdp.png");
+            pictureBox1.Size = new Size(92,96);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            
+            pictureBox_twitch_icon.Image = Image.FromFile($@"{path}\Images\twitch_icon.png");
+            pictureBox_twitch_icon.Size = new Size(32,22);
+            pictureBox_twitch_icon.SizeMode = PictureBoxSizeMode.StretchImage;
+            
+            pictureBox_twitter_icon.Image = Image.FromFile($@"{path}\Images\twitter_icon.png");
+            pictureBox_twitter_icon.Size = new Size(32,33);
+            pictureBox_twitter_icon.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            
+            pictureBox_yt_icon.Image = Image.FromFile($@"{path}\Images\yt_icon.png");
+            pictureBox_yt_icon.Size = new Size(32,28);
+            pictureBox_yt_icon.SizeMode = PictureBoxSizeMode.StretchImage;
+            
+            pictureBox_insta_icon.Image = Image.FromFile($@"{path}\Images\insta_icon.png");
+            pictureBox_insta_icon.Size = new Size(28,28);
+            pictureBox_insta_icon.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            picturebox_edit.Image = Image.FromFile($@"{path}\Images\edit_icon.png");
+            picturebox_edit.Size = new Size(15,15);
+            picturebox_edit.Location = new Point(60, 50);
+            picturebox_edit.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            label_yt.Text = "YOUTUBE";
+            label_twitter.Text = "TWITTER";
+            label_twitch.Text = "TWITCH";
+            
+            first_tweet_text_likes.Text = "Likes";
+            second_tweet_text_likes.Text = "Likes";
+            third_tweet_text_like.Text = "Likes";
+            label_twitter_tweet.Text = "Newest tweets";
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.test_panel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.yt_panel = new System.Windows.Forms.Panel();
+            this.pictureBox_yt_icon = new System.Windows.Forms.PictureBox();
+            this.youtubeLabel = new System.Windows.Forms.Label();
+            this.label_yt = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel_twitch = new System.Windows.Forms.Panel();
+            this.pictureBox_twitch_icon = new System.Windows.Forms.PictureBox();
+            this.label_twitch = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel_insta = new System.Windows.Forms.Panel();
+            this.pictureBox_insta_icon = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel_twitter = new System.Windows.Forms.Panel();
+            this.pictureBox_twitter_icon = new System.Windows.Forms.PictureBox();
+            this.label_twitter = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label_twitter_tweet = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.third_newest_tweet = new System.Windows.Forms.Label();
+            this.third_tweet_text_like = new System.Windows.Forms.Label();
+            this.third_tweet_likes_amount = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.second_newest_tweet = new System.Windows.Forms.Label();
+            this.second_tweet_text_likes = new System.Windows.Forms.Label();
+            this.second_tweet_likes_amount = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.newest_tweet = new System.Windows.Forms.Label();
+            this.first_tweet_text_likes = new System.Windows.Forms.Label();
+            this.first_tweet_likes_amount = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.staySameTemplate = new System.Windows.Forms.Panel();
+            this.panel_edit = new System.Windows.Forms.Panel();
+            this.picturebox_edit = new System.Windows.Forms.PictureBox();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.yt_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize) (this.pictureBox_yt_icon)).BeginInit();
+            this.panel4.SuspendLayout();
+            this.panel_twitch.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize) (this.pictureBox_twitch_icon)).BeginInit();
+            this.panel5.SuspendLayout();
+            this.panel_insta.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize) (this.pictureBox_insta_icon)).BeginInit();
+            this.panel6.SuspendLayout();
+            this.panel_twitter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize) (this.pictureBox_twitter_icon)).BeginInit();
+            this.panel7.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.staySameTemplate.SuspendLayout();
+            this.panel_edit.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize) (this.picturebox_edit)).BeginInit();
+            this.panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (41)))), ((int) (((byte) (41)))), ((int) (((byte) (41)))));
+            this.panel1.Controls.Add(this.flowLayoutPanel1);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Location = new System.Drawing.Point(0, 40);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(189, 522);
+            this.panel1.TabIndex = 2;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 63);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(163, 448);
+            this.flowLayoutPanel1.TabIndex = 8;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (88)))), ((int) (((byte) (73)))), ((int) (((byte) (96)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button2.Location = new System.Drawing.Point(12, 34);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(163, 23);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "New Creator";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.textBox1.Location = new System.Drawing.Point(12, 6);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(163, 20);
+            this.textBox1.TabIndex = 5;
+            // 
+            // label13
+            // 
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label13.ForeColor = System.Drawing.SystemColors.Control;
+            this.label13.Location = new System.Drawing.Point(12, 9);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(150, 19);
+            this.label13.TabIndex = 19;
+            this.label13.Text = "SOCIALSTATS";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (94)))), ((int) (((byte) (40)))), ((int) (((byte) (119)))));
+            this.panel2.Controls.Add(this.label13);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(913, 40);
+            this.panel2.TabIndex = 3;
+            // 
+            // test_panel
+            // 
+            this.test_panel.Location = new System.Drawing.Point(3, 3);
+            this.test_panel.Name = "test_panel";
+            this.test_panel.Size = new System.Drawing.Size(704, 519);
+            this.test_panel.TabIndex = 20;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Calibri", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(114, 47);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(577, 42);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Toast";
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.Controls.Add(this.yt_panel);
+            this.panel3.Controls.Add(this.youtubeLabel);
+            this.panel3.Controls.Add(this.label_yt);
+            this.panel3.Location = new System.Drawing.Point(30, 92);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(300, 112);
+            this.panel3.TabIndex = 8;
+            // 
+            // yt_panel
+            // 
+            this.yt_panel.Controls.Add(this.pictureBox_yt_icon);
+            this.yt_panel.Location = new System.Drawing.Point(266, 8);
+            this.yt_panel.Name = "yt_panel";
+            this.yt_panel.Size = new System.Drawing.Size(34, 33);
+            this.yt_panel.TabIndex = 20;
+            // 
+            // pictureBox_yt_icon
+            // 
+            this.pictureBox_yt_icon.Location = new System.Drawing.Point(3, 4);
+            this.pictureBox_yt_icon.Name = "pictureBox_yt_icon";
+            this.pictureBox_yt_icon.Size = new System.Drawing.Size(28, 26);
+            this.pictureBox_yt_icon.TabIndex = 0;
+            this.pictureBox_yt_icon.TabStop = false;
+            // 
+            // youtubeLabel
+            // 
+            this.youtubeLabel.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.youtubeLabel.ForeColor = System.Drawing.Color.White;
+            this.youtubeLabel.Location = new System.Drawing.Point(3, 53);
+            this.youtubeLabel.Name = "youtubeLabel";
+            this.youtubeLabel.Size = new System.Drawing.Size(294, 59);
+            this.youtubeLabel.TabIndex = 16;
+            // 
+            // label_yt
+            // 
+            this.label_yt.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label_yt.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (167)))), ((int) (((byte) (67)))), ((int) (((byte) (85)))));
+            this.label_yt.Location = new System.Drawing.Point(3, 9);
+            this.label_yt.Name = "label_yt";
+            this.label_yt.Size = new System.Drawing.Size(154, 44);
+            this.label_yt.TabIndex = 12;
+            // 
+            // label11
+            // 
+            this.label11.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(13, 53);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(284, 59);
+            this.label11.TabIndex = 18;
+            this.label11.Text = "1.000.000";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Transparent;
+            this.panel4.Controls.Add(this.panel_twitch);
+            this.panel4.Controls.Add(this.label_twitch);
+            this.panel4.Controls.Add(this.label12);
+            this.panel4.Location = new System.Drawing.Point(30, 237);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(300, 112);
+            this.panel4.TabIndex = 9;
+            // 
+            // panel_twitch
+            // 
+            this.panel_twitch.Controls.Add(this.pictureBox_twitch_icon);
+            this.panel_twitch.Location = new System.Drawing.Point(268, 9);
+            this.panel_twitch.Name = "panel_twitch";
+            this.panel_twitch.Size = new System.Drawing.Size(32, 33);
+            this.panel_twitch.TabIndex = 21;
+            // 
+            // pictureBox_twitch_icon
+            // 
+            this.pictureBox_twitch_icon.Location = new System.Drawing.Point(3, 4);
+            this.pictureBox_twitch_icon.Name = "pictureBox_twitch_icon";
+            this.pictureBox_twitch_icon.Size = new System.Drawing.Size(26, 26);
+            this.pictureBox_twitch_icon.TabIndex = 0;
+            this.pictureBox_twitch_icon.TabStop = false;
+            // 
+            // label_twitch
+            // 
+            this.label_twitch.BackColor = System.Drawing.Color.Transparent;
+            this.label_twitch.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label_twitch.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (124)))), ((int) (((byte) (94)))), ((int) (((byte) (174)))));
+            this.label_twitch.Location = new System.Drawing.Point(0, 9);
+            this.label_twitch.Name = "label_twitch";
+            this.label_twitch.Size = new System.Drawing.Size(139, 26);
+            this.label_twitch.TabIndex = 21;
+            // 
+            // label12
+            // 
+            this.label12.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(3, 50);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(297, 62);
+            this.label12.TabIndex = 19;
+            this.label12.Text = "1.000.000";
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.Transparent;
+            this.panel5.Controls.Add(this.panel_insta);
+            this.panel5.Controls.Add(this.label4);
+            this.panel5.Location = new System.Drawing.Point(30, 381);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(300, 112);
+            this.panel5.TabIndex = 10;
+            // 
+            // panel_insta
+            // 
+            this.panel_insta.Controls.Add(this.pictureBox_insta_icon);
+            this.panel_insta.Location = new System.Drawing.Point(268, 8);
+            this.panel_insta.Name = "panel_insta";
+            this.panel_insta.Size = new System.Drawing.Size(32, 33);
+            this.panel_insta.TabIndex = 22;
+            // 
+            // pictureBox_insta_icon
+            // 
+            this.pictureBox_insta_icon.Location = new System.Drawing.Point(3, 4);
+            this.pictureBox_insta_icon.Name = "pictureBox_insta_icon";
+            this.pictureBox_insta_icon.Size = new System.Drawing.Size(26, 26);
+            this.pictureBox_insta_icon.TabIndex = 0;
+            this.pictureBox_insta_icon.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (165)))), ((int) (((byte) (67)))), ((int) (((byte) (167)))));
+            this.label4.Location = new System.Drawing.Point(0, 12);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(139, 26);
+            this.label4.TabIndex = 22;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.Transparent;
+            this.panel6.Controls.Add(this.panel_twitter);
+            this.panel6.Controls.Add(this.label_twitter);
+            this.panel6.Controls.Add(this.label11);
+            this.panel6.Location = new System.Drawing.Point(391, 92);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(300, 112);
+            this.panel6.TabIndex = 9;
+            // 
+            // panel_twitter
+            // 
+            this.panel_twitter.Controls.Add(this.pictureBox_twitter_icon);
+            this.panel_twitter.Location = new System.Drawing.Point(268, 8);
+            this.panel_twitter.Name = "panel_twitter";
+            this.panel_twitter.Size = new System.Drawing.Size(32, 33);
+            this.panel_twitter.TabIndex = 21;
+            // 
+            // pictureBox_twitter_icon
+            // 
+            this.pictureBox_twitter_icon.Location = new System.Drawing.Point(3, 4);
+            this.pictureBox_twitter_icon.Name = "pictureBox_twitter_icon";
+            this.pictureBox_twitter_icon.Size = new System.Drawing.Size(26, 26);
+            this.pictureBox_twitter_icon.TabIndex = 0;
+            this.pictureBox_twitter_icon.TabStop = false;
+            // 
+            // label_twitter
+            // 
+            this.label_twitter.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label_twitter.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (67)))), ((int) (((byte) (125)))), ((int) (((byte) (167)))));
+            this.label_twitter.Location = new System.Drawing.Point(10, 9);
+            this.label_twitter.Name = "label_twitter";
+            this.label_twitter.Size = new System.Drawing.Size(154, 44);
+            this.label_twitter.TabIndex = 21;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (71)))), ((int) (((byte) (71)))), ((int) (((byte) (71)))));
+            this.panel7.Controls.Add(this.label_twitter_tweet);
+            this.panel7.Controls.Add(this.panel10);
+            this.panel7.Controls.Add(this.panel9);
+            this.panel7.Controls.Add(this.panel8);
+            this.panel7.Controls.Add(this.label6);
+            this.panel7.Location = new System.Drawing.Point(391, 237);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(300, 256);
+            this.panel7.TabIndex = 18;
+            // 
+            // label_twitter_tweet
+            // 
+            this.label_twitter_tweet.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label_twitter_tweet.ForeColor = System.Drawing.Color.White;
+            this.label_twitter_tweet.Location = new System.Drawing.Point(10, 14);
+            this.label_twitter_tweet.Name = "label_twitter_tweet";
+            this.label_twitter_tweet.Size = new System.Drawing.Size(280, 25);
+            this.label_twitter_tweet.TabIndex = 20;
+            this.label_twitter_tweet.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (47)))), ((int) (((byte) (47)))), ((int) (((byte) (47)))));
+            this.panel10.Controls.Add(this.third_newest_tweet);
+            this.panel10.Controls.Add(this.third_tweet_text_like);
+            this.panel10.Controls.Add(this.third_tweet_likes_amount);
+            this.panel10.Controls.Add(this.label22);
+            this.panel10.Location = new System.Drawing.Point(10, 185);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(280, 61);
+            this.panel10.TabIndex = 26;
+            // 
+            // third_newest_tweet
+            // 
+            this.third_newest_tweet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.third_newest_tweet.ForeColor = System.Drawing.Color.White;
+            this.third_newest_tweet.Location = new System.Drawing.Point(3, 0);
+            this.third_newest_tweet.Name = "third_newest_tweet";
+            this.third_newest_tweet.Size = new System.Drawing.Size(274, 43);
+            this.third_newest_tweet.TabIndex = 26;
+            // 
+            // third_tweet_text_like
+            // 
+            this.third_tweet_text_like.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.third_tweet_text_like.ForeColor = System.Drawing.Color.White;
+            this.third_tweet_text_like.Location = new System.Drawing.Point(34, 43);
+            this.third_tweet_text_like.Name = "third_tweet_text_like";
+            this.third_tweet_text_like.Size = new System.Drawing.Size(42, 18);
+            this.third_tweet_text_like.TabIndex = 25;
+            // 
+            // third_tweet_likes_amount
+            // 
+            this.third_tweet_likes_amount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.third_tweet_likes_amount.ForeColor = System.Drawing.Color.White;
+            this.third_tweet_likes_amount.Location = new System.Drawing.Point(3, 43);
+            this.third_tweet_likes_amount.Name = "third_tweet_likes_amount";
+            this.third_tweet_likes_amount.Size = new System.Drawing.Size(42, 18);
+            this.third_tweet_likes_amount.TabIndex = 23;
+            // 
+            // label22
+            // 
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label22.ForeColor = System.Drawing.Color.White;
+            this.label22.Location = new System.Drawing.Point(3, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(274, 43);
+            this.label22.TabIndex = 22;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (47)))), ((int) (((byte) (47)))), ((int) (((byte) (47)))));
+            this.panel9.Controls.Add(this.second_newest_tweet);
+            this.panel9.Controls.Add(this.second_tweet_text_likes);
+            this.panel9.Controls.Add(this.second_tweet_likes_amount);
+            this.panel9.Controls.Add(this.label19);
+            this.panel9.Location = new System.Drawing.Point(10, 118);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(280, 61);
+            this.panel9.TabIndex = 25;
+            // 
+            // second_newest_tweet
+            // 
+            this.second_newest_tweet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.second_newest_tweet.ForeColor = System.Drawing.Color.White;
+            this.second_newest_tweet.Location = new System.Drawing.Point(3, 0);
+            this.second_newest_tweet.Name = "second_newest_tweet";
+            this.second_newest_tweet.Size = new System.Drawing.Size(274, 43);
+            this.second_newest_tweet.TabIndex = 25;
+            // 
+            // second_tweet_text_likes
+            // 
+            this.second_tweet_text_likes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.second_tweet_text_likes.ForeColor = System.Drawing.Color.White;
+            this.second_tweet_text_likes.Location = new System.Drawing.Point(34, 43);
+            this.second_tweet_text_likes.Name = "second_tweet_text_likes";
+            this.second_tweet_text_likes.Size = new System.Drawing.Size(42, 18);
+            this.second_tweet_text_likes.TabIndex = 24;
+            // 
+            // second_tweet_likes_amount
+            // 
+            this.second_tweet_likes_amount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.second_tweet_likes_amount.ForeColor = System.Drawing.Color.White;
+            this.second_tweet_likes_amount.Location = new System.Drawing.Point(3, 43);
+            this.second_tweet_likes_amount.Name = "second_tweet_likes_amount";
+            this.second_tweet_likes_amount.Size = new System.Drawing.Size(42, 18);
+            this.second_tweet_likes_amount.TabIndex = 23;
+            // 
+            // label19
+            // 
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label19.ForeColor = System.Drawing.Color.White;
+            this.label19.Location = new System.Drawing.Point(3, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(274, 43);
+            this.label19.TabIndex = 22;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (47)))), ((int) (((byte) (47)))), ((int) (((byte) (47)))));
+            this.panel8.Controls.Add(this.newest_tweet);
+            this.panel8.Controls.Add(this.first_tweet_text_likes);
+            this.panel8.Controls.Add(this.first_tweet_likes_amount);
+            this.panel8.Controls.Add(this.label14);
+            this.panel8.Location = new System.Drawing.Point(10, 51);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(280, 61);
+            this.panel8.TabIndex = 19;
+            // 
+            // newest_tweet
+            // 
+            this.newest_tweet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.newest_tweet.ForeColor = System.Drawing.Color.White;
+            this.newest_tweet.Location = new System.Drawing.Point(3, 0);
+            this.newest_tweet.Name = "newest_tweet";
+            this.newest_tweet.Size = new System.Drawing.Size(274, 43);
+            this.newest_tweet.TabIndex = 24;
+            // 
+            // first_tweet_text_likes
+            // 
+            this.first_tweet_text_likes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.first_tweet_text_likes.ForeColor = System.Drawing.Color.White;
+            this.first_tweet_text_likes.Location = new System.Drawing.Point(34, 43);
+            this.first_tweet_text_likes.Name = "first_tweet_text_likes";
+            this.first_tweet_text_likes.Size = new System.Drawing.Size(42, 18);
+            this.first_tweet_text_likes.TabIndex = 24;
+            // 
+            // first_tweet_likes_amount
+            // 
+            this.first_tweet_likes_amount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.first_tweet_likes_amount.ForeColor = System.Drawing.Color.White;
+            this.first_tweet_likes_amount.Location = new System.Drawing.Point(3, 43);
+            this.first_tweet_likes_amount.Name = "first_tweet_likes_amount";
+            this.first_tweet_likes_amount.Size = new System.Drawing.Size(42, 18);
+            this.first_tweet_likes_amount.TabIndex = 23;
+            // 
+            // label14
+            // 
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(3, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(274, 43);
+            this.label14.TabIndex = 22;
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(80, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(149, 25);
+            this.label6.TabIndex = 19;
+            // 
+            // staySameTemplate
+            // 
+            this.staySameTemplate.BackColor = System.Drawing.Color.Transparent;
+            this.staySameTemplate.Controls.Add(this.panel_edit);
+            this.staySameTemplate.Controls.Add(this.panel11);
+            this.staySameTemplate.Controls.Add(this.test_panel);
+            this.staySameTemplate.Controls.Add(this.panel6);
+            this.staySameTemplate.Controls.Add(this.label1);
+            this.staySameTemplate.Controls.Add(this.panel5);
+            this.staySameTemplate.Controls.Add(this.panel7);
+            this.staySameTemplate.Controls.Add(this.panel4);
+            this.staySameTemplate.Controls.Add(this.panel3);
+            this.staySameTemplate.Dock = System.Windows.Forms.DockStyle.Right;
+            this.staySameTemplate.Location = new System.Drawing.Point(195, 40);
+            this.staySameTemplate.Name = "staySameTemplate";
+            this.staySameTemplate.Size = new System.Drawing.Size(718, 522);
+            this.staySameTemplate.TabIndex = 19;
+            // 
+            // panel_edit
+            // 
+            this.panel_edit.Controls.Add(this.picturebox_edit);
+            this.panel_edit.Location = new System.Drawing.Point(613, 6);
+            this.panel_edit.Name = "panel_edit";
+            this.panel_edit.Size = new System.Drawing.Size(78, 80);
+            this.panel_edit.TabIndex = 21;
+            // 
+            // picturebox_edit
+            // 
+            this.picturebox_edit.Location = new System.Drawing.Point(3, 4);
+            this.picturebox_edit.Name = "picturebox_edit";
+            this.picturebox_edit.Size = new System.Drawing.Size(72, 76);
+            this.picturebox_edit.TabIndex = 0;
+            this.picturebox_edit.TabStop = false;
+            this.picturebox_edit.Click += new System.EventHandler(this.picturebox_edit_Click);
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.pictureBox1);
+            this.panel11.Location = new System.Drawing.Point(30, 10);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(78, 80);
+            this.panel11.TabIndex = 19;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(3, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(72, 76);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (51)))), ((int) (((byte) (51)))), ((int) (((byte) (51)))));
+            this.ClientSize = new System.Drawing.Size(913, 562);
+            this.Controls.Add(this.staySameTemplate);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Location = new System.Drawing.Point(15, 15);
+            this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.yt_panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize) (this.pictureBox_yt_icon)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel_twitch.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize) (this.pictureBox_twitch_icon)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel_insta.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize) (this.pictureBox_insta_icon)).EndInit();
+            this.panel6.ResumeLayout(false);
+            this.panel_twitter.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize) (this.pictureBox_twitter_icon)).EndInit();
+            this.panel7.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            this.staySameTemplate.ResumeLayout(false);
+            this.panel_edit.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize) (this.picturebox_edit)).EndInit();
+            this.panel11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).EndInit();
+            this.ResumeLayout(false);
+        }
+
+        private System.Windows.Forms.Panel panel_edit;
+        private System.Windows.Forms.PictureBox picturebox_edit;
+
+        private System.Windows.Forms.Label label_twitter_tweet;
+
+        private System.Windows.Forms.Label third_newest_tweet;
+        //private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label newest_tweet;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label second_newest_tweet;
+        //private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label9;
+
+        private System.Windows.Forms.Panel panel_insta;
+        private System.Windows.Forms.PictureBox pictureBox_insta_icon;
+
+        private System.Windows.Forms.Panel panel_twitch;
+        private System.Windows.Forms.Panel panel_twitter;
+        private System.Windows.Forms.PictureBox pictureBox_twitch_icon;
+        private System.Windows.Forms.PictureBox pictureBox_twitter_icon;
+        private System.Windows.Forms.PictureBox pictureBox_yt_icon;
+        private System.Windows.Forms.Panel yt_panel;
+
+        private System.Windows.Forms.Panel test_panel;
+
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.PictureBox pictureBox1;
+
+        private System.Windows.Forms.Label third_tweet_text_like;
+
+        private System.Windows.Forms.Label label4;
+
+        private System.Windows.Forms.Label label_twitch;
+
+        private System.Windows.Forms.Label label_twitter;
+
+        private System.Windows.Forms.Label second_tweet_text_likes;
+        private System.Windows.Forms.Label second_tweet_likes_amount;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label third_tweet_likes_amount;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Panel panel9;
+
+        private System.Windows.Forms.Label first_tweet_likes_amount;
+        private System.Windows.Forms.Label first_tweet_text_likes;
+
+        private System.Windows.Forms.Label label14;
+
+        private System.Windows.Forms.Panel panel8;
+
+        private System.Windows.Forms.Label label6;
+
+        private System.Windows.Forms.Panel staySameTemplate;
+
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+
+        private System.Windows.Forms.Button button2;
+
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox textBox1;
+
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Panel panel7;
+
+        private System.Windows.Forms.Label youtubeLabel;
+
+
+        private System.Windows.Forms.Label label_yt;
+
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel6;
+
+        private System.Windows.Forms.Panel panel3;
+
+        private System.Windows.Forms.Label label1;
+
+        private System.Windows.Forms.Panel panel2;
+
+        private System.Windows.Forms.Panel panel1;
+
+        #endregion
+    }
+}
