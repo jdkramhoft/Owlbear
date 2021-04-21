@@ -1,16 +1,17 @@
 ﻿using System;
+using System.Threading.Tasks;
+using Twitterjack.Bot;
+using Twitterjack.Data.Access;
 
 namespace Twitterjack
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            while (true)
-            {
-                Console.WriteLine("Hello World!");
-                System.Threading.Thread.Sleep(1000);
-            }
+            ICreatorClient creatorClient = new CreatorClient();
+            var twitterBot = new TwitterBot(creatorClient);
+            await twitterBot.Run();
         }
     }
 }

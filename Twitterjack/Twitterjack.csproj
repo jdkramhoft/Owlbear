@@ -6,9 +6,24 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Compile Include="..\Owlbear\Utilities\NetUtils.cs">
-        <Link>Utilities\NetUtils.cs</Link>
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.5" />
+      <PackageReference Include="TweetinviAPI" Version="5.0.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Include="..\Owlbear\Model\Creator.cs">
+        <Link>Data\Model\Creator.cs</Link>
+      </Compile>
+      <Compile Include="..\Owlbear\Model\Twitch.cs">
+        <Link>Data\Model\Twitch.cs</Link>
+      </Compile>
+      <Compile Include="..\Owlbear\Model\Twitter.cs">
+        <Link>Data\Model\Twitter.cs</Link>
+      </Compile>
+      <Compile Include="..\Owlbear\Model\Youtube.cs">
+        <Link>Data\Model\Youtube.cs</Link>
       </Compile>
     </ItemGroup>
+
 
 </Project>
