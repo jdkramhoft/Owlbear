@@ -29,9 +29,9 @@ namespace GUI
         public void LoadResources()
         {
             var path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
-            pictureBox1.Image = Image.FromFile($@"{path}\Images\pdp.png");
-            pictureBox1.Size = new Size(92,96);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            picturebox_main_creator_image.Image = Image.FromFile($@"{path}\Images\pdp.png");
+            picturebox_main_creator_image.Size = new Size(92,96);
+            picturebox_main_creator_image.SizeMode = PictureBoxSizeMode.StretchImage;
             
             pictureBox_twitch_icon.Image = Image.FromFile($@"{path}\Images\twitch_icon.png");
             pictureBox_twitch_icon.Size = new Size(32,22);
@@ -75,23 +75,23 @@ namespace GUI
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.button_create_new_creator = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.test_panel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label_main_creator_name = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.yt_panel = new System.Windows.Forms.Panel();
             this.pictureBox_yt_icon = new System.Windows.Forms.PictureBox();
-            this.youtubeLabel = new System.Windows.Forms.Label();
+            this.label_yt_follower_count = new System.Windows.Forms.Label();
             this.label_yt = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.label_twitter_follower_count = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel_twitch = new System.Windows.Forms.Panel();
             this.pictureBox_twitch_icon = new System.Windows.Forms.PictureBox();
             this.label_twitch = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.label_twitch_follower_count = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel_insta = new System.Windows.Forms.Panel();
             this.pictureBox_insta_icon = new System.Windows.Forms.PictureBox();
@@ -121,8 +121,8 @@ namespace GUI
             this.staySameTemplate = new System.Windows.Forms.Panel();
             this.panel_edit = new System.Windows.Forms.Panel();
             this.picturebox_edit = new System.Windows.Forms.PictureBox();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel_main_creator_image = new System.Windows.Forms.Panel();
+            this.picturebox_main_creator_image = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -144,15 +144,15 @@ namespace GUI
             this.staySameTemplate.SuspendLayout();
             this.panel_edit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize) (this.picturebox_edit)).BeginInit();
-            this.panel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).BeginInit();
+            this.panel_main_creator_image.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize) (this.picturebox_main_creator_image)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (41)))), ((int) (((byte) (41)))), ((int) (((byte) (41)))));
             this.panel1.Controls.Add(this.flowLayoutPanel1);
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.button_create_new_creator);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Location = new System.Drawing.Point(0, 40);
             this.panel1.Name = "panel1";
@@ -167,20 +167,20 @@ namespace GUI
             this.flowLayoutPanel1.Size = new System.Drawing.Size(163, 448);
             this.flowLayoutPanel1.TabIndex = 8;
             // 
-            // button2
+            // button_create_new_creator
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (88)))), ((int) (((byte) (73)))), ((int) (((byte) (96)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.Location = new System.Drawing.Point(12, 34);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(163, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "New Creator";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button_create_new_creator.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (88)))), ((int) (((byte) (73)))), ((int) (((byte) (96)))));
+            this.button_create_new_creator.FlatAppearance.BorderSize = 0;
+            this.button_create_new_creator.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_create_new_creator.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.button_create_new_creator.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_create_new_creator.Location = new System.Drawing.Point(12, 34);
+            this.button_create_new_creator.Name = "button_create_new_creator";
+            this.button_create_new_creator.Size = new System.Drawing.Size(163, 23);
+            this.button_create_new_creator.TabIndex = 6;
+            this.button_create_new_creator.Text = "New Creator";
+            this.button_create_new_creator.UseVisualStyleBackColor = false;
+            this.button_create_new_creator.Click += new System.EventHandler(this.button2_Click);
             // 
             // textBox1
             // 
@@ -218,21 +218,21 @@ namespace GUI
             this.test_panel.Size = new System.Drawing.Size(704, 519);
             this.test_panel.TabIndex = 20;
             // 
-            // label1
+            // label_main_creator_name
             // 
-            this.label1.Font = new System.Drawing.Font("Calibri", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(114, 47);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(577, 42);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Toast";
+            this.label_main_creator_name.Font = new System.Drawing.Font("Calibri", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label_main_creator_name.ForeColor = System.Drawing.Color.White;
+            this.label_main_creator_name.Location = new System.Drawing.Point(114, 47);
+            this.label_main_creator_name.Name = "label_main_creator_name";
+            this.label_main_creator_name.Size = new System.Drawing.Size(577, 42);
+            this.label_main_creator_name.TabIndex = 7;
+            this.label_main_creator_name.Text = "Toast";
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
             this.panel3.Controls.Add(this.yt_panel);
-            this.panel3.Controls.Add(this.youtubeLabel);
+            this.panel3.Controls.Add(this.label_yt_follower_count);
             this.panel3.Controls.Add(this.label_yt);
             this.panel3.Location = new System.Drawing.Point(30, 92);
             this.panel3.Name = "panel3";
@@ -255,14 +255,14 @@ namespace GUI
             this.pictureBox_yt_icon.TabIndex = 0;
             this.pictureBox_yt_icon.TabStop = false;
             // 
-            // youtubeLabel
+            // label_yt_follower_count
             // 
-            this.youtubeLabel.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.youtubeLabel.ForeColor = System.Drawing.Color.White;
-            this.youtubeLabel.Location = new System.Drawing.Point(3, 53);
-            this.youtubeLabel.Name = "youtubeLabel";
-            this.youtubeLabel.Size = new System.Drawing.Size(294, 59);
-            this.youtubeLabel.TabIndex = 16;
+            this.label_yt_follower_count.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label_yt_follower_count.ForeColor = System.Drawing.Color.White;
+            this.label_yt_follower_count.Location = new System.Drawing.Point(3, 53);
+            this.label_yt_follower_count.Name = "label_yt_follower_count";
+            this.label_yt_follower_count.Size = new System.Drawing.Size(294, 59);
+            this.label_yt_follower_count.TabIndex = 16;
             // 
             // label_yt
             // 
@@ -273,23 +273,23 @@ namespace GUI
             this.label_yt.Size = new System.Drawing.Size(154, 44);
             this.label_yt.TabIndex = 12;
             // 
-            // label11
+            // label_twitter_follower_count
             // 
-            this.label11.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(13, 53);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(284, 59);
-            this.label11.TabIndex = 18;
-            this.label11.Text = "1.000.000";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
+            this.label_twitter_follower_count.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label_twitter_follower_count.ForeColor = System.Drawing.Color.White;
+            this.label_twitter_follower_count.Location = new System.Drawing.Point(13, 53);
+            this.label_twitter_follower_count.Name = "label_twitter_follower_count";
+            this.label_twitter_follower_count.Size = new System.Drawing.Size(284, 59);
+            this.label_twitter_follower_count.TabIndex = 18;
+            this.label_twitter_follower_count.Text = "1.000.000";
+            this.label_twitter_follower_count.Click += new System.EventHandler(this.label11_Click);
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Transparent;
             this.panel4.Controls.Add(this.panel_twitch);
             this.panel4.Controls.Add(this.label_twitch);
-            this.panel4.Controls.Add(this.label12);
+            this.panel4.Controls.Add(this.label_twitch_follower_count);
             this.panel4.Location = new System.Drawing.Point(30, 237);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(300, 112);
@@ -321,15 +321,15 @@ namespace GUI
             this.label_twitch.Size = new System.Drawing.Size(139, 26);
             this.label_twitch.TabIndex = 21;
             // 
-            // label12
+            // label_twitch_follower_count
             // 
-            this.label12.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(3, 50);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(297, 62);
-            this.label12.TabIndex = 19;
-            this.label12.Text = "1.000.000";
+            this.label_twitch_follower_count.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label_twitch_follower_count.ForeColor = System.Drawing.Color.White;
+            this.label_twitch_follower_count.Location = new System.Drawing.Point(3, 50);
+            this.label_twitch_follower_count.Name = "label_twitch_follower_count";
+            this.label_twitch_follower_count.Size = new System.Drawing.Size(297, 62);
+            this.label_twitch_follower_count.TabIndex = 19;
+            this.label_twitch_follower_count.Text = "1.000.000";
             // 
             // panel5
             // 
@@ -372,7 +372,7 @@ namespace GUI
             this.panel6.BackColor = System.Drawing.Color.Transparent;
             this.panel6.Controls.Add(this.panel_twitter);
             this.panel6.Controls.Add(this.label_twitter);
-            this.panel6.Controls.Add(this.label11);
+            this.panel6.Controls.Add(this.label_twitter_follower_count);
             this.panel6.Location = new System.Drawing.Point(391, 92);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(300, 112);
@@ -583,10 +583,10 @@ namespace GUI
             // 
             this.staySameTemplate.BackColor = System.Drawing.Color.Transparent;
             this.staySameTemplate.Controls.Add(this.panel_edit);
-            this.staySameTemplate.Controls.Add(this.panel11);
+            this.staySameTemplate.Controls.Add(this.panel_main_creator_image);
             this.staySameTemplate.Controls.Add(this.test_panel);
             this.staySameTemplate.Controls.Add(this.panel6);
-            this.staySameTemplate.Controls.Add(this.label1);
+            this.staySameTemplate.Controls.Add(this.label_main_creator_name);
             this.staySameTemplate.Controls.Add(this.panel5);
             this.staySameTemplate.Controls.Add(this.panel7);
             this.staySameTemplate.Controls.Add(this.panel4);
@@ -614,23 +614,23 @@ namespace GUI
             this.picturebox_edit.TabStop = false;
             this.picturebox_edit.Click += new System.EventHandler(this.picturebox_edit_Click);
             // 
-            // panel11
+            // panel_main_creator_image
             // 
-            this.panel11.Controls.Add(this.pictureBox1);
-            this.panel11.Location = new System.Drawing.Point(30, 10);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(78, 80);
-            this.panel11.TabIndex = 19;
+            this.panel_main_creator_image.Controls.Add(this.picturebox_main_creator_image);
+            this.panel_main_creator_image.Location = new System.Drawing.Point(30, 10);
+            this.panel_main_creator_image.Name = "panel_main_creator_image";
+            this.panel_main_creator_image.Size = new System.Drawing.Size(78, 80);
+            this.panel_main_creator_image.TabIndex = 19;
             // 
-            // pictureBox1
+            // picturebox_main_creator_image
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(3, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(72, 76);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.picturebox_main_creator_image.Location = new System.Drawing.Point(3, 4);
+            this.picturebox_main_creator_image.Name = "picturebox_main_creator_image";
+            this.picturebox_main_creator_image.Size = new System.Drawing.Size(72, 76);
+            this.picturebox_main_creator_image.TabIndex = 0;
+            this.picturebox_main_creator_image.TabStop = false;
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -666,8 +666,8 @@ namespace GUI
             this.staySameTemplate.ResumeLayout(false);
             this.panel_edit.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize) (this.picturebox_edit)).EndInit();
-            this.panel11.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).EndInit();
+            this.panel_main_creator_image.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize) (this.picturebox_main_creator_image)).EndInit();
             this.ResumeLayout(false);
         }
 
@@ -697,8 +697,8 @@ namespace GUI
 
         private System.Windows.Forms.Panel test_panel;
 
-        private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel_main_creator_image;
+        private System.Windows.Forms.PictureBox picturebox_main_creator_image;
 
         private System.Windows.Forms.Label third_tweet_text_like;
 
@@ -729,16 +729,16 @@ namespace GUI
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
 
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button_create_new_creator;
 
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBox1;
 
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label_twitter_follower_count;
+        private System.Windows.Forms.Label label_twitch_follower_count;
         private System.Windows.Forms.Panel panel7;
 
-        private System.Windows.Forms.Label youtubeLabel;
+        private System.Windows.Forms.Label label_yt_follower_count;
 
 
         private System.Windows.Forms.Label label_yt;
@@ -749,7 +749,7 @@ namespace GUI
 
         private System.Windows.Forms.Panel panel3;
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label_main_creator_name;
 
         private System.Windows.Forms.Panel panel2;
 

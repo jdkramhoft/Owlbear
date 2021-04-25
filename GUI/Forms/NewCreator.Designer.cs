@@ -45,7 +45,7 @@ namespace GUI
             this.label1.Size = new System.Drawing.Size(171, 30);
             this.label1.TabIndex = 5;
             this.label1.Text = "Name of Creator";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button1
             // 
@@ -60,7 +60,7 @@ namespace GUI
             this.button1.TabIndex = 4;
             this.button1.Text = "Add Creator";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
@@ -72,7 +72,7 @@ namespace GUI
             this.textBox1.Size = new System.Drawing.Size(171, 20);
             this.textBox1.TabIndex = 3;
             this.textBox1.Text = "@";
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // NewCreator
             // 

@@ -6,7 +6,7 @@ namespace GUI
 {
     public partial class NewCreator : Form
     {
-        
+        /*
         private readonly Creator _creator;
         
         public NewCreator(Creator creator)
@@ -58,5 +58,6 @@ namespace GUI
         {
             
         }
+        */
     }
 }

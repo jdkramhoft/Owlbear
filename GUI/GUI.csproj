@@ -35,6 +35,15 @@
       <Compile Include="..\Owlbear\Model\Youtube.cs">
         <Link>DataFromWeb\Model\Youtube.cs</Link>
       </Compile>
+      <Compile Update="Forms\ButtonTemplate.cs">
+        <SubType>UserControl</SubType>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <HintPath>..\..\..\..\..\Windows\Microsoft.NET\assembly\GAC_MSIL\System.Windows.Forms\v4.0_4.0.0.0__b77a5c561934e089\System.Windows.Forms.dll</HintPath>
+      </Reference>
     </ItemGroup>
 
 </Project>

@@ -31,9 +31,9 @@ namespace GUI
         
         private void button1_Click(object sender, EventArgs e)
         {
-            var form2 = new Popup();
-            form2.Activate();
-            form2.Show();
+            // var form2 = new Popup();
+            // form2.Activate();
+            // form2.Show();
         }
     }
 }

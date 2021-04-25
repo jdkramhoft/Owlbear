@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using GUI.DataFromWeb;
+using Owlbear.Dto.Creator;
 
 namespace GUI
 {
-    
+    /*
     public class Creator
     {
         public Button OkayButton { get; set; }
@@ -16,11 +17,11 @@ namespace GUI
         public string TwitchFollowing { get; set; }
         public string InstagramFollowing { get; set; }
     }
-    
+    */
     
     public partial class MainForm : Form
     {
-        private readonly List<Creator> _creators = new();
+        // private readonly List<Creator> _creators = new();
         
         public MainForm()
         {
@@ -32,33 +33,73 @@ namespace GUI
 
         private async void Form1_Load(object sender, EventArgs e)
         {
+            var creatorList = await new CreatorWebServiceThing().GetCreators();
+            foreach (var creator in creatorList)
+            {
+                var btn = new Button()
+                {
+                    Text = creator.Name,
+                    TextAlign = ContentAlignment.MiddleLeft,
+                    BackColor = Color.Transparent,
+                    ForeColor = Color.White,
+                    FlatStyle = FlatStyle.Flat,
+                    FlatAppearance = {BorderColor = Color.FromArgb(41, 41, 41)},
+                    Width = flowLayoutPanel1.Width - 25,
+                };
+                // Anonymous function
+                btn.Click += (o, args) =>
+                {
+                    label_main_creator_name.Text = creator.Name;
+
+                    test_panel.Visible = false;
+                    
+                    var na = "Not available";
+                    label_yt_follower_count.Text = creator.Youtube?.Subscribers != null
+                        ? creator.Youtube.Subscribers.ToString()
+                        : na;
+                    label_twitch_follower_count.Text = creator.Twitch?.Followers != null
+                        ? creator.Twitch.Followers.ToString()
+                        : na;
+                    label_twitter_follower_count.Text = creator.Twitter?.Followers != null
+                        ? creator.Twitter.Followers.ToString()
+                        : na;
+                };
+                flowLayoutPanel1.Controls.Add(btn);
+            }
+            
+            /*
             var twitterStats = await Program.TwitterStats();
-            var better = await new CreatorWebServiceThing().GetCreator(1);
-            label11.Text = better.Twitter.Followers.ToString();
+            var better = await new CreatorWebServiceThing().GetCreator(2);
+            // label_twitter_follower_count.Text = better.Twitter.Followers.ToString();
+            label_yt_follower_count.Text = better.Youtube.Subscribers.ToString();
+            label_twitch_follower_count.Text = better.Twitch.Followers.ToString();
+            */
         }
         
         private void button2_Click(object sender, EventArgs e)
         {
-            button2.FlatAppearance.BorderColor = Color.DimGray;
+            button_create_new_creator.FlatAppearance.BorderColor = Color.DimGray;
 
-            var creator = new Creator();
-            _creators.Add(creator);
-            var newCreator = new NewCreator(creator);
-            newCreator.StartPosition = FormStartPosition.CenterScreen;
-            newCreator.ShowDialog();
-            creator.OkayButton.Width = flowLayoutPanel1.Width - 25;
-            flowLayoutPanel1.Controls.Add(creator.OkayButton);
-            creator.OkayButton.Click += OnOkayClick;
+            new Popup(null) {StartPosition = FormStartPosition.CenterScreen}.ShowDialog();
+            
+            // var creator = new Creator();
+            // _creators.Add(creator);
+            // var popup = new Popup(creator);
+            // popup.StartPosition = FormStartPosition.CenterScreen;
+            // popup.ShowDialog();
+            // creator.OkayButton.Width = flowLayoutPanel1.Width - 10;
+            // flowLayoutPanel1.Controls.Add(creator.OkayButton);
+            // creator.OkayButton.Click += OnOkayClick;
         }
 
-        private void OnOkayClick(object sender, EventArgs e)
-        {
-            var caller = sender as Button;
-            var creator = _creators.Find(c => c.Name == caller?.Text);
-            label1.Text = creator?.Name;
-            test_panel.Visible = false;
-            youtubeLabel.Text = creator?.YoutubeFollowing;
-        }
+        // private void OnOkayClick(object sender, EventArgs e)
+        // {
+        //     var caller = sender as Button;
+        //     var creator = _creators.Find(c => c.Name == caller?.Text);
+        //     label_main_creator_name.Text = creator?.Name;
+        //     test_panel.Visible = false;
+        //     label_yt_follower_count.Text = creator?.YoutubeFollowing;
+        // }
         private void label11_Click(object sender, EventArgs e)
         {
             
@@ -101,9 +142,18 @@ namespace GUI
 
         private void picturebox_edit_Click(object sender, EventArgs e)
         {
+
+            var creatorFromDB = new CreatorDto();
+            creatorFromDB.Name = "PewDiePie";
+            var popup = new Popup(creatorFromDB) {StartPosition = FormStartPosition.CenterScreen};
+            popup.Activate();
+            popup.Show();
+            
+            /*
             var form2 = new Popup {StartPosition = FormStartPosition.CenterScreen};
             form2.Activate();
             form2.Show();
+            */
         }
 
     }
