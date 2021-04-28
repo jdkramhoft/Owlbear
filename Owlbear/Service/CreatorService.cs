@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Transactions;
 using Microsoft.EntityFrameworkCore;
@@ -14,14 +15,16 @@ namespace Owlbear.Service
     public class CreatorService : ICreatorService
     {
         private readonly ICreatorRepository _creatorRepository;
+        private readonly ICreatorRecordRepository _recordRepository;
         private readonly IRemoteTwitterRepository _remoteTwitterRepository;
         private readonly IRemoteTwitchRepository _remoteTwitchRepository;
         private readonly IRemoteYoutubeRepository _remoteYoutubeRepository;
 
         public CreatorService(ICreatorRepository creatorRepository, IRemoteTwitterRepository remoteTwitterRepository,
-            IRemoteTwitchRepository remoteTwitchRepository, IRemoteYoutubeRepository remoteYoutubeRepository)
+            IRemoteTwitchRepository remoteTwitchRepository, IRemoteYoutubeRepository remoteYoutubeRepository, ICreatorRecordRepository recordRepository)
         {
             _creatorRepository = creatorRepository;
+            _recordRepository = recordRepository;
             _remoteTwitterRepository = remoteTwitterRepository;
             _remoteTwitchRepository = remoteTwitchRepository;
             _remoteYoutubeRepository = remoteYoutubeRepository;
@@ -108,5 +111,7 @@ namespace Owlbear.Service
             }
             return await _creatorRepository.UpdateAsync(creator);
         }
+
+        
     }
 }

@@ -8,6 +8,9 @@ namespace Owlbear.Model
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CreatorRecordId { get; set; }
+        [Required]
+        [Range(0, int.MaxValue)]
+        public int CreatorId { get; set; }
         [Column(TypeName = "date")] 
         [Required] 
         public DateTime Date { get; set; }
