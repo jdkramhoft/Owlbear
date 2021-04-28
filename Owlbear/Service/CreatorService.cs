@@ -40,7 +40,6 @@ namespace Owlbear.Service
         public async Task<Creator> AddCreatorAsync(CreateCreatorDto creator)
         {
             var entity = new Creator {Name = creator.Name};
-            // Check if twitter etc already exists? twitter etc should be unique?
             if (creator.TwitterHandle != null)
             {
                 var twitter = await _remoteTwitterRepository.GetTwitter(creator.TwitterHandle);
