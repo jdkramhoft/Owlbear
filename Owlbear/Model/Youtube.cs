@@ -7,6 +7,8 @@ namespace Owlbear.Model
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int YoutubeId { get; set; }
+        [Required]
+        public string RemoteId { get; set; }
         [Range(0, long.MaxValue)]
         public long TotalViews { get; set; }
         [Range(0, long.MaxValue)]

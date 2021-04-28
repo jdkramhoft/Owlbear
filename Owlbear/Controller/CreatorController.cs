@@ -46,6 +46,12 @@ namespace Owlbear.Controller
             return _mapper.Map<CreatorDto>(await _creatorService.AddCreatorAsync(dto));
         }
         
+        [HttpPatch("{id}")]
+        public async Task<CreatorDto> Refresh(int id)
+        {
+            return _mapper.Map<CreatorDto>(await _creatorService.RefreshCreatorAsync(id));
+        }
+        
         [HttpPut("{id}")]
         public async Task<CreatorDto> Update(int id, UpdateCreatorDto dto)
         {

@@ -46,6 +46,39 @@ namespace Owlbear.Migrations
                     b.ToTable("Creators");
                 });
 
+            modelBuilder.Entity("Owlbear.Model.CreatorRecord", b =>
+                {
+                    b.Property<int>("CreatorRecordId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("date");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("TwitchTwitterId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("TwitterId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("YoutubeId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("CreatorRecordId");
+
+                    b.HasIndex("TwitchTwitterId");
+
+                    b.HasIndex("TwitterId");
+
+                    b.HasIndex("YoutubeId");
+
+                    b.ToTable("CreatorArchive");
+                });
+
             modelBuilder.Entity("Owlbear.Model.Twitch", b =>
                 {
                     b.Property<int>("TwitterId")
@@ -117,6 +150,10 @@ namespace Owlbear.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("RemoteId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<long>("Subscribers")
                         .HasColumnType("INTEGER");
 
@@ -129,6 +166,27 @@ namespace Owlbear.Migrations
                 });
 
             modelBuilder.Entity("Owlbear.Model.Creator", b =>
+                {
+                    b.HasOne("Owlbear.Model.Twitch", "Twitch")
+                        .WithMany()
+                        .HasForeignKey("TwitchTwitterId");
+
+                    b.HasOne("Owlbear.Model.Twitter", "Twitter")
+                        .WithMany()
+                        .HasForeignKey("TwitterId");
+
+                    b.HasOne("Owlbear.Model.Youtube", "Youtube")
+                        .WithMany()
+                        .HasForeignKey("YoutubeId");
+
+                    b.Navigation("Twitch");
+
+                    b.Navigation("Twitter");
+
+                    b.Navigation("Youtube");
+                });
+
+            modelBuilder.Entity("Owlbear.Model.CreatorRecord", b =>
                 {
                     b.HasOne("Owlbear.Model.Twitch", "Twitch")
                         .WithMany()

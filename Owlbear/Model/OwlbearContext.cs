@@ -5,7 +5,7 @@ namespace Owlbear.Model
     public class OwlbearContext : DbContext
     {
         public DbSet<Creator> Creators { get; set; }
-        
+        public DbSet<CreatorRecord> CreatorArchive { get; set; }
         
         public OwlbearContext()
         {

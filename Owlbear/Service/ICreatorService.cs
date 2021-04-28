@@ -12,5 +12,6 @@ namespace Owlbear.Service
         Task<Creator> AddCreatorAsync(CreateCreatorDto creator);
         Task<Creator> UpdateCreatorAsync(int id, UpdateCreatorDto creator);
         Task<Creator> DeleteCreatorAsync(int id);
+        Task<Creator> RefreshCreatorAsync(int id);
     }
 }
