@@ -18,7 +18,7 @@ namespace Owlbear.Repository
             try
             {
                 return Context.Set<CreatorRecord>()
-                    .Include(record => record.Twitter)
+                    .Include(record => record.Twitter.Tweets)
                     .Include(record => record.Twitch)
                     .Include(record => record.Youtube);
             }

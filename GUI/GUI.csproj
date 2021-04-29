@@ -26,6 +26,9 @@
       <Compile Include="..\Owlbear\Model\Creator.cs">
         <Link>DataFromWeb\Model\Creator.cs</Link>
       </Compile>
+      <Compile Include="..\Owlbear\Model\Tweet.cs">
+        <Link>DataFromWeb\Model\Tweet.cs</Link>
+      </Compile>
       <Compile Include="..\Owlbear\Model\Twitch.cs">
         <Link>DataFromWeb\Model\Twitch.cs</Link>
       </Compile>

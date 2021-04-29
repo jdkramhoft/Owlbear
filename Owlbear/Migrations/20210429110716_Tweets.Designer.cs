@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Owlbear.Model;
 
 namespace Owlbear.Migrations
 {
     [DbContext(typeof(OwlbearContext))]
-    partial class OwlbearContextModelSnapshot : ModelSnapshot
+    [Migration("20210429110716_Tweets")]
+    partial class Tweets
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -93,10 +95,6 @@ namespace Owlbear.Migrations
 
                     b.Property<int>("Quotes")
                         .HasColumnType("INTEGER");
-
-                    b.Property<string>("RemoteId")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
 
                     b.Property<int>("Replies")
                         .HasColumnType("INTEGER");

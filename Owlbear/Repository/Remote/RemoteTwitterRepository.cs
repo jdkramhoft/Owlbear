@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace Owlbear.Repository.Remote
     public class RemoteTwitterRepository : IRemoteTwitterRepository
     {
         private const string TwitterApiUserByName = "https://api.twitter.com/2/users/by/username/";
+        private const string TwitterApiRecentTweets = "https://api.twitter.com/2/users/:id/tweets/";
         private readonly string _bearerToken = NetUtils.TwitterBearerToken;
         private readonly HttpClient _client = NetUtils.Client;
         private readonly IMapper _mapper;
@@ -34,7 +36,32 @@ namespace Owlbear.Repository.Remote
             try
             {
                 var dto = JsonConvert.DeserializeObject<RemoteTwitterResponseDto>(content);
-                return _mapper.Map<Twitter>(dto);
+                var twitter = _mapper.Map<Twitter>(dto);
+                twitter.Tweets = await GetRecentTweets(twitter.RemoteId);
+                return twitter;
+            }
+            catch (JsonException e)
+            {
+                throw new Exception(e.Message); // TODO: Throw new custom exception
+            }
+            
+        }
+
+        private async Task<List<Tweet>> GetRecentTweets(string id)
+        {
+            var query = new NetUtils.QueryBuilder($"https://api.twitter.com/2/users/{id}/tweets");
+            query["exclude"] += new[]{"retweets", "replies"};
+            query["tweet.fields"] += "public_metrics";
+            query["max_results"] += "5"; // 5 is minimum allowed
+            using var request = new HttpRequestMessage(HttpMethod.Get, query.ToString());
+            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _bearerToken);
+            var response = await _client.SendAsync(request);
+            var content = await response.Content.ReadAsStringAsync();
+            try
+            {
+                var dto = JsonConvert.DeserializeObject<RemoteTwitterTweetsResponseDto>(content);
+                if (dto == null) throw new JsonException();
+                return _mapper.Map<List<Tweet>>(dto.data);
             }
             catch (JsonException e)
             {

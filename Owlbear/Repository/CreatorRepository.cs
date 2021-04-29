@@ -38,7 +38,7 @@ namespace Owlbear.Repository
             try
             {
                 var entity = await Context.Creators
-                    .Include(creator => creator.Twitter)
+                    .Include(creator => creator.Twitter.Tweets)
                     .Include(creator => creator.Twitch)
                     .Include(creator => creator.Youtube)
                     .FirstAsync(creator => creator.CreatorId == id);

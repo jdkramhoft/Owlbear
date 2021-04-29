@@ -3,7 +3,7 @@
 namespace Owlbear.Dto.Remote.Twitter
 {
     [SuppressMessage("ReSharper", "InconsistentNaming")]
-    public class PublicMetricsDto
+    public class UserPublicMetricsDto
     {
         public int followers_count { get; set; }
         public int following_count { get; set; }
