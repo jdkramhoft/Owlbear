@@ -22,6 +22,7 @@ namespace GUI
     public partial class MainForm : Form
     {
         // private readonly List<Creator> _creators = new();
+        private CreatorDto activeDTO;
         
         public MainForm()
         {
@@ -63,6 +64,8 @@ namespace GUI
                     label_twitter_follower_count.Text = creator.Twitter?.Followers != null
                         ? creator.Twitter.Followers.ToString()
                         : na;
+
+                    activeDTO = creator;
                 };
                 flowLayoutPanel1.Controls.Add(btn);
             }
@@ -143,9 +146,9 @@ namespace GUI
         private void picturebox_edit_Click(object sender, EventArgs e)
         {
 
-            var creatorFromDB = new CreatorDto();
-            creatorFromDB.Name = "PewDiePie";
-            var popup = new Popup(creatorFromDB) {StartPosition = FormStartPosition.CenterScreen};
+            // var creatorFromDB = new CreatorDto();
+            // creatorFromDB.Name = "PewDiePie";
+            var popup = new Popup(activeDTO) {StartPosition = FormStartPosition.CenterScreen};
             popup.Activate();
             popup.Show();
             
