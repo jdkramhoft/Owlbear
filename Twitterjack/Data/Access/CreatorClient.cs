@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Owlbear.Dto.Creator;
 using Owlbear.Model;
-using Tweetinvi;
 using Twitterjack.Configuration;
 
 namespace Twitterjack.Data.Access

@@ -15,19 +15,19 @@ namespace Owlbear.Service
     public class CreatorService : ICreatorService
     {
         private readonly ICreatorRepository _creatorRepository;
-        private readonly ICreatorRecordRepository _recordRepository;
         private readonly IRemoteTwitterRepository _remoteTwitterRepository;
         private readonly IRemoteTwitchRepository _remoteTwitchRepository;
         private readonly IRemoteYoutubeRepository _remoteYoutubeRepository;
+        private readonly IMilestoneService _milestoneService;
 
         public CreatorService(ICreatorRepository creatorRepository, IRemoteTwitterRepository remoteTwitterRepository,
-            IRemoteTwitchRepository remoteTwitchRepository, IRemoteYoutubeRepository remoteYoutubeRepository, ICreatorRecordRepository recordRepository)
+            IRemoteTwitchRepository remoteTwitchRepository, IRemoteYoutubeRepository remoteYoutubeRepository, IMilestoneService milestoneService)
         {
             _creatorRepository = creatorRepository;
-            _recordRepository = recordRepository;
             _remoteTwitterRepository = remoteTwitterRepository;
             _remoteTwitchRepository = remoteTwitchRepository;
             _remoteYoutubeRepository = remoteYoutubeRepository;
+            _milestoneService = milestoneService;
         }
 
         public async Task<List<Creator>> GetAllCreatorsAsync()
@@ -91,6 +91,14 @@ namespace Owlbear.Service
         public async Task<Creator> RefreshCreatorAsync(int id)
         {
             var creator = await _creatorRepository.GetAsync(id);
+            await RefreshSocials(creator);
+            var updated = await _creatorRepository.UpdateAsync(creator);
+            await _milestoneService.TweetMilestones(creator, updated);
+            return updated;
+        }
+
+        private async Task RefreshSocials(Creator creator)
+        {
             if (creator.Twitter != null)
             {
                 var handle = creator.Twitter.Handle;
@@ -109,9 +117,6 @@ namespace Owlbear.Service
                 var youtube = await _remoteYoutubeRepository.GetYoutube(channelId);
                 creator.Youtube = youtube;
             }
-            return await _creatorRepository.UpdateAsync(creator);
         }
-
-        
     }
 }

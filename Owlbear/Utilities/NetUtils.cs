@@ -14,6 +14,10 @@ namespace Owlbear.Utilities
         public static readonly string TwitchClientId = Environment.GetEnvironmentVariable("TWITCH_CLIENT_ID") ?? throw new InvalidOperationException();
         public static readonly string TwitterBearerToken = Environment.GetEnvironmentVariable("TWITTER_BEARER") ?? throw new InvalidOperationException();
         public static readonly string YoutubeApiKey = Environment.GetEnvironmentVariable("YOUTUBE_API_KEY") ?? throw new InvalidOperationException();
+        public static readonly string TwitterApiKey = Environment.GetEnvironmentVariable("TWITTER_API_KEY") ?? throw new InvalidOperationException();
+        public static readonly string TwitterApiSecret = Environment.GetEnvironmentVariable("TWITTER_API_SECRET") ?? throw new InvalidOperationException();
+        public static readonly string TwitterAccessToken = Environment.GetEnvironmentVariable("TWITTER_ACCESS_TOKEN") ?? throw new InvalidOperationException();
+        public static readonly string TwitterAccessSecret = Environment.GetEnvironmentVariable("TWITTER_ACCESS_SECRET") ?? throw new InvalidOperationException();
 
         public static readonly HttpClient Client = new();
 

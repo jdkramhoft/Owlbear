@@ -2,8 +2,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Owlbear", "Owlbear\Owlbear.csproj", "{913823F1-9F14-4FB4-849F-26322EE8CFEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Twitterjack", "Twitterjack\Twitterjack.csproj", "{462490DA-A0FB-4858-9942-B1742791B8CC}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "GUI\GUI.csproj", "{B364E617-7B28-4C96-8EC6-045FE4DB1092}"
 EndProject
 Global
@@ -16,10 +14,6 @@ Global
 		{913823F1-9F14-4FB4-849F-26322EE8CFEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{913823F1-9F14-4FB4-849F-26322EE8CFEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{913823F1-9F14-4FB4-849F-26322EE8CFEB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{462490DA-A0FB-4858-9942-B1742791B8CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{462490DA-A0FB-4858-9942-B1742791B8CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{462490DA-A0FB-4858-9942-B1742791B8CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{462490DA-A0FB-4858-9942-B1742791B8CC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B364E617-7B28-4C96-8EC6-045FE4DB1092}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B364E617-7B28-4C96-8EC6-045FE4DB1092}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B364E617-7B28-4C96-8EC6-045FE4DB1092}.Release|Any CPU.ActiveCfg = Release|Any CPU
