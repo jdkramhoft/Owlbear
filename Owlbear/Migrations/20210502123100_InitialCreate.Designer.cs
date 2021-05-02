@@ -9,8 +9,8 @@ using Owlbear.Model;
 namespace Owlbear.Migrations
 {
     [DbContext(typeof(OwlbearContext))]
-    [Migration("20210429111810_TweetsRemoteId")]
-    partial class TweetsRemoteId
+    [Migration("20210502123100_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

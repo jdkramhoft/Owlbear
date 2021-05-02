@@ -7,7 +7,6 @@
 
     <ItemGroup>
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.5" />
-      <PackageReference Include="TweetinviAPI" Version="5.0.4" />
     </ItemGroup>
 
     <ItemGroup>
