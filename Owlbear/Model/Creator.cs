@@ -12,5 +12,11 @@ namespace Owlbear.Model
         public Twitter Twitter { get; set; }
         public Twitch Twitch { get; set; }
         public Youtube Youtube { get; set; }
+
+        public Creator Copy()
+        {
+            return new()
+                {CreatorId = CreatorId, Name = Name, Twitch = Twitch?.Copy(), Twitter = Twitter?.Copy(), Youtube = Youtube?.Copy()};
+        }
     }
 }

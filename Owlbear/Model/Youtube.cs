@@ -13,5 +13,10 @@ namespace Owlbear.Model
         public long TotalViews { get; set; }
         [Range(0, long.MaxValue)]
         public long Subscribers { get; set; }
+
+        public Youtube Copy()
+        {
+            return new(){YoutubeId = YoutubeId, RemoteId = RemoteId, TotalViews = TotalViews, Subscribers = Subscribers};
+        }
     }
 }

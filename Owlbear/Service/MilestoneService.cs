@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Owlbear.Model;
@@ -25,10 +26,13 @@ namespace Owlbear.Service
             {
                 milestones.Add(100_00 * i);
             }
-            for (var i = 1; i <= 100; i++)
+
+            for (var i = 1; i <= 10; i++)
             {
                 milestones.Add(1_000_000 * i);
             }
+
+            milestones.Add(2682526);
         }
 
         public async Task TweetMilestones(Creator creator, Creator updated)

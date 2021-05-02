@@ -20,5 +20,15 @@ namespace Owlbear.Model
         public string Description { get; set; }
         public string ProfileImageUrl { get; set; }
         public string OfflineImageUrl { get; set; }
+
+        public Twitch Copy()
+        {
+            return new Twitch()
+            {
+                TwitterId = TwitterId, RemoteId = RemoteId, RemoteLogin = RemoteLogin, Description = Description,
+                Followers = Followers, Handle = Handle, Views = Views, OfflineImageUrl = OfflineImageUrl,
+                ProfileImageUrl = ProfileImageUrl
+            };
+        }
     }
 }
