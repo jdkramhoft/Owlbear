@@ -13,7 +13,7 @@ namespace GUI
         private bool CreatingNew;
         private CreatorDto Creator;
         
-        public Popup(CreatorDto creator)
+        public Popup(CreatorDto creator = null)
         {
             CreatingNew = creator == null;
             Creator = creator ?? new CreatorDto();
@@ -21,22 +21,22 @@ namespace GUI
             InitializeComponent();
 
             // if else ish
-            creator_name_write.Text = Creator.Name;
+            // creator_name_write.Text = Creator.Name;
             //yt handle
             //twitter handle
 
             var na = "";
-            creator_name_write.Text = creator.Name != null
-                ? creator.Name
+            creator_name_write.Text = Creator.Name != null
+                ? Creator.Name
                 : na;
-            yt_name_write.Text = creator.Youtube?.YoutubeId != null
-                ? creator.Youtube.YoutubeId.ToString()
+            yt_name_write.Text = Creator.Youtube?.RemoteId != null
+                ? Creator.Youtube.RemoteId
                 : na;
-            twitter_name_write.Text = creator.Twitter?.Handle != null
-                ? creator.Twitter.Handle.ToString()
+            twitter_name_write.Text = Creator.Twitter?.Handle != null
+                ? Creator.Twitter.Handle
                 : na;
-            twitch_write_name.Text = creator.Twitch?.Handle != null
-                ? creator.Twitch.Handle.ToString()
+            twitch_write_name.Text = Creator.Twitch?.Handle != null
+                ? Creator.Twitch.Handle
                 : na;
 
             // SetButton();
@@ -69,7 +69,7 @@ namespace GUI
                     new CreatorWebServiceThing().UpdateCreator(dto);
                 }
                 
-                throw new System.NotImplementedException();
+                DialogResult = DialogResult.OK;
             }
         
         public void SetButton()

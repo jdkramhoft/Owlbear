@@ -34,6 +34,22 @@ namespace GUI
 
         private async void Form1_Load(object sender, EventArgs e)
         {
+            refreshCreatorList();
+            flowPanel();
+
+            /*
+            var twitterStats = await Program.TwitterStats();
+            var better = await new CreatorWebServiceThing().GetCreator(2);
+            // label_twitter_follower_count.Text = better.Twitter.Followers.ToString();
+            label_yt_follower_count.Text = better.Youtube.Subscribers.ToString();
+            label_twitch_follower_count.Text = better.Twitch.Followers.ToString();
+            */
+        }
+
+        public async void refreshCreatorList()
+        {
+            flowLayoutPanel1.Controls.Clear();
+            
             var creatorList = await new CreatorWebServiceThing().GetCreators();
             foreach (var creator in creatorList)
             {
@@ -53,7 +69,7 @@ namespace GUI
                     label_main_creator_name.Text = creator.Name;
 
                     test_panel.Visible = false;
-                    
+
                     var na = "Not available";
                     label_yt_follower_count.Text = creator.Youtube?.Subscribers != null
                         ? creator.Youtube.Subscribers.ToString()
@@ -69,21 +85,14 @@ namespace GUI
                 };
                 flowLayoutPanel1.Controls.Add(btn);
             }
-            
-            /*
-            var twitterStats = await Program.TwitterStats();
-            var better = await new CreatorWebServiceThing().GetCreator(2);
-            // label_twitter_follower_count.Text = better.Twitter.Followers.ToString();
-            label_yt_follower_count.Text = better.Youtube.Subscribers.ToString();
-            label_twitch_follower_count.Text = better.Twitch.Followers.ToString();
-            */
         }
         
         private void button2_Click(object sender, EventArgs e)
         {
             button_create_new_creator.FlatAppearance.BorderColor = Color.DimGray;
 
-            new Popup(null) {StartPosition = FormStartPosition.CenterScreen}.ShowDialog();
+            var result = new Popup() {StartPosition = FormStartPosition.CenterScreen}.ShowDialog();
+            if (result == DialogResult.OK) refreshCreatorList();
             
             // var creator = new Creator();
             // _creators.Add(creator);
@@ -157,6 +166,12 @@ namespace GUI
             form2.Activate();
             form2.Show();
             */
+        }
+
+        private void flowPanel()
+        {
+            //sorter creators
+            //make searchbar work
         }
 
     }

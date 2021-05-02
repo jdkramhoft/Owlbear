@@ -41,7 +41,7 @@ namespace GUI.DataFromWeb
             }
             catch (JsonException e)
             {
-                Console.WriteLine("Uh oh! JSON");
+                Console.WriteLine("Uh oh! JSON GetCreators");
                 throw; // TODO: Throw new custom exception
             }
         }
