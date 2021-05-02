@@ -12,7 +12,9 @@ namespace Owlbear.Mapping
                 .ForMember(youtube => youtube.Subscribers,
                     opt => opt.MapFrom(src => src.items[0].statistics.subscriberCount))
                 .ForMember(youtube => youtube.TotalViews,
-                    opt => opt.MapFrom(src => src.items[0].statistics.viewCount));
+                    opt => opt.MapFrom(src => src.items[0].statistics.viewCount))
+                .ForMember(youtube => youtube.RemoteId,
+                    opt => opt.MapFrom(src => src.items[0].id));
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Transactions;
 using Microsoft.EntityFrameworkCore;
@@ -14,14 +15,16 @@ namespace Owlbear.Service
     public class CreatorService : ICreatorService
     {
         private readonly ICreatorRepository _creatorRepository;
+        private readonly ICreatorRecordRepository _recordRepository;
         private readonly IRemoteTwitterRepository _remoteTwitterRepository;
         private readonly IRemoteTwitchRepository _remoteTwitchRepository;
         private readonly IRemoteYoutubeRepository _remoteYoutubeRepository;
 
         public CreatorService(ICreatorRepository creatorRepository, IRemoteTwitterRepository remoteTwitterRepository,
-            IRemoteTwitchRepository remoteTwitchRepository, IRemoteYoutubeRepository remoteYoutubeRepository)
+            IRemoteTwitchRepository remoteTwitchRepository, IRemoteYoutubeRepository remoteYoutubeRepository, ICreatorRecordRepository recordRepository)
         {
             _creatorRepository = creatorRepository;
+            _recordRepository = recordRepository;
             _remoteTwitterRepository = remoteTwitterRepository;
             _remoteTwitchRepository = remoteTwitchRepository;
             _remoteYoutubeRepository = remoteYoutubeRepository;
@@ -40,7 +43,6 @@ namespace Owlbear.Service
         public async Task<Creator> AddCreatorAsync(CreateCreatorDto creator)
         {
             var entity = new Creator {Name = creator.Name};
-            // Check if twitter etc already exists? twitter etc should be unique?
             if (creator.TwitterHandle != null)
             {
                 var twitter = await _remoteTwitterRepository.GetTwitter(creator.TwitterHandle);
@@ -63,6 +65,21 @@ namespace Owlbear.Service
         {
             var entity = await _creatorRepository.GetAsync(id);
             entity.Name = creator.Name;
+            if (creator.TwitterHandle != null)
+            {
+                var twitter = await _remoteTwitterRepository.GetTwitter(creator.TwitterHandle);
+                entity.Twitter = twitter;
+            }
+            if (creator.TwitchHandle != null)
+            {
+                var twitch = await _remoteTwitchRepository.GetTwitch(creator.TwitchHandle);
+                entity.Twitch = twitch;
+            }
+            if (creator.YoutubeHandle != null)
+            {
+                var youtube = await _remoteYoutubeRepository.GetYoutube(creator.YoutubeHandle);
+                entity.Youtube = youtube;
+            }
             return await _creatorRepository.UpdateAsync(entity);
         }
 
@@ -70,5 +87,31 @@ namespace Owlbear.Service
         {
             return await _creatorRepository.DeleteAsync(id);
         }
+
+        public async Task<Creator> RefreshCreatorAsync(int id)
+        {
+            var creator = await _creatorRepository.GetAsync(id);
+            if (creator.Twitter != null)
+            {
+                var handle = creator.Twitter.Handle;
+                var twitter = await _remoteTwitterRepository.GetTwitter(handle);
+                creator.Twitter = twitter;
+            }
+            if (creator.Twitch != null)
+            {
+                var handle = creator.Twitch.Handle;
+                var twitch = await _remoteTwitchRepository.GetTwitch(handle);
+                creator.Twitch = twitch;
+            }
+            if (creator.Youtube != null)
+            {
+                var channelId = creator.Youtube.RemoteId;
+                var youtube = await _remoteYoutubeRepository.GetYoutube(channelId);
+                creator.Youtube = youtube;
+            }
+            return await _creatorRepository.UpdateAsync(creator);
+        }
+
+        
     }
 }

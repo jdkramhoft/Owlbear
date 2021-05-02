@@ -37,11 +37,13 @@ namespace Owlbear
             
             services.AddTransient(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddTransient<ICreatorRepository, CreatorRepository>();
+            services.AddTransient<ICreatorRecordRepository, CreatorRecordRepository>();
             services.AddTransient<IRemoteTwitterRepository, RemoteTwitterRepository>();
             services.AddTransient<IRemoteTwitchRepository, RemoteTwitchRepository>();
             services.AddTransient<IRemoteYoutubeRepository, RemoteYoutubeRepository>();
             
             services.AddTransient<ICreatorService, CreatorService>();
+            services.AddTransient<ICreatorRecordService, CreatorRecordService>();
             
             services.AddControllers();
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "Owlbear", Version = "v1"}); });

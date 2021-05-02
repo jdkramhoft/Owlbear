@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Owlbear.Model;
 
 namespace Owlbear.Migrations
 {
     [DbContext(typeof(OwlbearContext))]
-    partial class OwlbearContextModelSnapshot : ModelSnapshot
+    [Migration("20210428100459_ArchiveWithReference")]
+    partial class ArchiveWithReference
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -80,42 +82,6 @@ namespace Owlbear.Migrations
                     b.HasIndex("YoutubeId");
 
                     b.ToTable("CreatorArchive");
-                });
-
-            modelBuilder.Entity("Owlbear.Model.Tweet", b =>
-                {
-                    b.Property<int>("TweetId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("Likes")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("Quotes")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("RemoteId")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("Replies")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("Retweets")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Text")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<int?>("TwitterId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("TweetId");
-
-                    b.HasIndex("TwitterId");
-
-                    b.ToTable("Tweet");
                 });
 
             modelBuilder.Entity("Owlbear.Model.Twitch", b =>
@@ -244,18 +210,6 @@ namespace Owlbear.Migrations
                     b.Navigation("Twitter");
 
                     b.Navigation("Youtube");
-                });
-
-            modelBuilder.Entity("Owlbear.Model.Tweet", b =>
-                {
-                    b.HasOne("Owlbear.Model.Twitter", null)
-                        .WithMany("Tweets")
-                        .HasForeignKey("TwitterId");
-                });
-
-            modelBuilder.Entity("Owlbear.Model.Twitter", b =>
-                {
-                    b.Navigation("Tweets");
                 });
 #pragma warning restore 612, 618
         }
