@@ -22,9 +22,9 @@ namespace Owlbear.Service
 
         private static void AddMilestones(ICollection<int> milestones)
         {
-            for (var i = 1; i < 9; i++)
+            for (var i = 1; i <= 9; i++)
             {
-                milestones.Add(100_00 * i);
+                milestones.Add(100_000 * i);
             }
 
             for (var i = 1; i <= 10; i++)
