@@ -14,6 +14,7 @@ namespace Updater
         
         static async Task Main(string[] args)
         {
+            var count = 1;
             while (true)
             {
                 using var getRequest = new HttpRequestMessage(HttpMethod.Get, "https://localhost:5001/api/creators");
@@ -33,6 +34,7 @@ namespace Updater
                     using var patchRequest = new HttpRequestMessage(HttpMethod.Patch, $"https://localhost:5001/api/creators/{creator.Id}");
                     await Client.SendAsync(patchRequest);
                 }
+                Console.WriteLine($"Update {count} completed");
                 System.Threading.Thread.Sleep(1000 * 60 * 60);
             }
             
