@@ -29,6 +29,7 @@ namespace Owlbear.Service
             for (var i = 1; i <= 9; i++)
             {
                 milestones.Add(100_000 * i);
+                milestones.Add(100_000 * i + 50_000);
             }
 
             for (var i = 1; i <= 10; i++)
