@@ -36,8 +36,6 @@ namespace Owlbear.Service
             {
                 milestones.Add(1_000_000 * i);
             }
-
-            milestones.Add(2682526);
         }
 
         public async Task TweetMilestones(Creator creator, Creator updated)
