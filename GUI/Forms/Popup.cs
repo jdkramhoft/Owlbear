@@ -42,35 +42,31 @@ namespace GUI
             // SetButton();
         }
         
-        private void button_create_creator_Click(object sender, EventArgs e)
+        private async void button_create_creator_Click(object sender, EventArgs e)
+        {
+            CreatorDto resultDTO = null;
+            
+            if (CreatingNew)
             {
-                if (CreatingNew)
-                {
-                    CreateCreatorDto dto = new CreateCreatorDto();
-                    dto.Name = creator_name_write.Text;
-                    dto.YoutubeHandle = yt_name_write.Text;
-                    dto.TwitterHandle = twitter_name_write.Text;
-                    dto.TwitchHandle = twitch_write_name.Text;
-                    //youtube
-                    //Twitter
-                    //Twitch
-                    new CreatorWebServiceThing().CreateCreator(dto);
-                }
-                else if (!CreatingNew)
-                {
-                    UpdateCreatorDto dto = new UpdateCreatorDto();
-                    dto.Name = creator_name_write.Text;
-                    dto.YoutubeHandle = yt_name_write.Text;
-                    dto.TwitterHandle = twitter_name_write.Text;
-                    dto.TwitchHandle = twitch_write_name.Text;
-                    //youtube
-                    //Twitter
-                    //Twitch
-                    new CreatorWebServiceThing().UpdateCreator(dto);
-                }
-                
-                DialogResult = DialogResult.OK;
+                CreateCreatorDto dto = new CreateCreatorDto();
+                dto.Name = creator_name_write.Text;
+                if (yt_name_write.Text.Length > 0) dto.YoutubeHandle = yt_name_write.Text;
+                if (twitter_name_write.Text.Length > 0) dto.TwitterHandle = twitter_name_write.Text;
+                if (twitch_write_name.Text.Length > 0) dto.TwitchHandle = twitch_write_name.Text;
+                resultDTO = await new CreatorWebServiceThing().CreateCreator(dto);
             }
+            else if (!CreatingNew)
+            {
+                UpdateCreatorDto dto = new UpdateCreatorDto();
+                dto.Name = creator_name_write.Text;
+                if (yt_name_write.Text.Length > 0) dto.YoutubeHandle = yt_name_write.Text;
+                if (twitter_name_write.Text.Length > 0) dto.TwitterHandle = twitter_name_write.Text;
+                if (twitch_write_name.Text.Length > 0) dto.TwitchHandle = twitch_write_name.Text;
+                resultDTO = await new CreatorWebServiceThing().UpdateCreator(Creator.Id, dto);
+            }
+            
+            if (resultDTO != null) DialogResult = DialogResult.OK;
+        }
         
         public void SetButton()
         {

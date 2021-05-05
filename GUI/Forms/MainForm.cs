@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using GUI.DataFromWeb;
 using Owlbear.Dto.Creator;
@@ -23,6 +24,7 @@ namespace GUI
     {
         // private readonly List<Creator> _creators = new();
         private CreatorDto activeDTO;
+        private List<CreatorDto> creators;
         
         public MainForm()
         {
@@ -34,7 +36,7 @@ namespace GUI
 
         private async void Form1_Load(object sender, EventArgs e)
         {
-            refreshCreatorList();
+            getCreators();
             flowPanel();
 
             /*
@@ -46,12 +48,17 @@ namespace GUI
             */
         }
 
-        public async void refreshCreatorList()
+        public async void getCreators()
+        {
+            creators = await new CreatorWebServiceThing().GetCreators();
+            listCreators();
+        }
+
+        public void listCreators(string searchTerm = "")
         {
             flowLayoutPanel1.Controls.Clear();
             
-            var creatorList = await new CreatorWebServiceThing().GetCreators();
-            foreach (var creator in creatorList)
+            foreach (var creator in creators.Where(c => c.Name.Contains(searchTerm)).OrderBy(c => c.Name).ToList())
             {
                 var btn = new Button()
                 {
@@ -71,6 +78,8 @@ namespace GUI
                     test_panel.Visible = false;
 
                     var na = "Not available";
+                    // Hvorfor der skal/kan være ? efter eks. Youtube;
+                    // https://stackoverflow.com/questions/28352072/what-does-question-mark-and-dot-operator-mean-in-c-sharp-6-0
                     label_yt_follower_count.Text = creator.Youtube?.Subscribers != null
                         ? creator.Youtube.Subscribers.ToString()
                         : na;
@@ -92,7 +101,7 @@ namespace GUI
             button_create_new_creator.FlatAppearance.BorderColor = Color.DimGray;
 
             var result = new Popup() {StartPosition = FormStartPosition.CenterScreen}.ShowDialog();
-            if (result == DialogResult.OK) refreshCreatorList();
+            if (result == DialogResult.OK) getCreators();
             
             // var creator = new Creator();
             // _creators.Add(creator);
@@ -157,9 +166,10 @@ namespace GUI
 
             // var creatorFromDB = new CreatorDto();
             // creatorFromDB.Name = "PewDiePie";
-            var popup = new Popup(activeDTO) {StartPosition = FormStartPosition.CenterScreen};
-            popup.Activate();
-            popup.Show();
+            var result = new Popup(activeDTO) {StartPosition = FormStartPosition.CenterScreen}.ShowDialog();
+            if (result == DialogResult.OK) getCreators();
+            // popup.Activate();
+            // popup.Show();
             
             /*
             var form2 = new Popup {StartPosition = FormStartPosition.CenterScreen};
@@ -174,5 +184,12 @@ namespace GUI
             //make searchbar work
         }
 
+        private void textBox_search_TextChanged(object sender, EventArgs e)
+        {
+            // Look at dealying this, so a second without a keypress does the search
+            // Maybe use Dispacther?
+            var searchBox = (TextBox) sender;
+            listCreators(searchBox.Text);
+        }
     }
 }

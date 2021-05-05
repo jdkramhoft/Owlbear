@@ -76,7 +76,7 @@ namespace GUI
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button_create_new_creator = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textbox_search = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.test_panel = new System.Windows.Forms.Panel();
@@ -153,7 +153,7 @@ namespace GUI
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (41)))), ((int) (((byte) (41)))), ((int) (((byte) (41)))));
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Controls.Add(this.button_create_new_creator);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.textbox_search);
             this.panel1.Location = new System.Drawing.Point(0, 40);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(189, 522);
@@ -182,13 +182,14 @@ namespace GUI
             this.button_create_new_creator.UseVisualStyleBackColor = false;
             this.button_create_new_creator.Click += new System.EventHandler(this.button2_Click);
             // 
-            // textBox1
+            // textbox_search
             // 
-            this.textBox1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox1.Location = new System.Drawing.Point(12, 6);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(163, 20);
-            this.textBox1.TabIndex = 5;
+            this.textbox_search.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.textbox_search.Location = new System.Drawing.Point(12, 6);
+            this.textbox_search.Name = "textbox_search";
+            this.textbox_search.Size = new System.Drawing.Size(163, 20);
+            this.textbox_search.TabIndex = 5;
+            this.textbox_search.TextChanged += new System.EventHandler(this.textBox_search_TextChanged);
             // 
             // label13
             // 
@@ -732,7 +733,7 @@ namespace GUI
         private System.Windows.Forms.Button button_create_new_creator;
 
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textbox_search;
 
         private System.Windows.Forms.Label label_twitter_follower_count;
         private System.Windows.Forms.Label label_twitch_follower_count;
