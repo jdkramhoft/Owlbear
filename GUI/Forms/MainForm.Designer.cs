@@ -79,7 +79,7 @@ namespace GUI
             this.textbox_search = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.test_panel = new System.Windows.Forms.Panel();
+            this.allCreatorStatistics_Panel = new System.Windows.Forms.Panel();
             this.label_main_creator_name = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.yt_panel = new System.Windows.Forms.Panel();
@@ -118,7 +118,7 @@ namespace GUI
             this.first_tweet_likes_amount = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.staySameTemplate = new System.Windows.Forms.Panel();
+            this.creatorTemplate_panel = new System.Windows.Forms.Panel();
             this.panel_edit = new System.Windows.Forms.Panel();
             this.picturebox_edit = new System.Windows.Forms.PictureBox();
             this.panel_main_creator_image = new System.Windows.Forms.Panel();
@@ -141,7 +141,7 @@ namespace GUI
             this.panel10.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.staySameTemplate.SuspendLayout();
+            this.creatorTemplate_panel.SuspendLayout();
             this.panel_edit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize) (this.picturebox_edit)).BeginInit();
             this.panel_main_creator_image.SuspendLayout();
@@ -214,10 +214,10 @@ namespace GUI
             // 
             // test_panel
             // 
-            this.test_panel.Location = new System.Drawing.Point(3, 3);
-            this.test_panel.Name = "test_panel";
-            this.test_panel.Size = new System.Drawing.Size(704, 519);
-            this.test_panel.TabIndex = 20;
+            this.allCreatorStatistics_Panel.Location = new System.Drawing.Point(3, 3);
+            this.allCreatorStatistics_Panel.Name = "allCreatorStatistics_Panel";
+            this.allCreatorStatistics_Panel.Size = new System.Drawing.Size(704, 519);
+            this.allCreatorStatistics_Panel.TabIndex = 20;
             // 
             // label_main_creator_name
             // 
@@ -283,7 +283,6 @@ namespace GUI
             this.label_twitter_follower_count.Size = new System.Drawing.Size(284, 59);
             this.label_twitter_follower_count.TabIndex = 18;
             this.label_twitter_follower_count.Text = "1.000.000";
-            this.label_twitter_follower_count.Click += new System.EventHandler(this.label11_Click);
             // 
             // panel4
             // 
@@ -582,21 +581,21 @@ namespace GUI
             // 
             // staySameTemplate
             // 
-            this.staySameTemplate.BackColor = System.Drawing.Color.Transparent;
-            this.staySameTemplate.Controls.Add(this.panel_edit);
-            this.staySameTemplate.Controls.Add(this.panel_main_creator_image);
-            this.staySameTemplate.Controls.Add(this.test_panel);
-            this.staySameTemplate.Controls.Add(this.panel6);
-            this.staySameTemplate.Controls.Add(this.label_main_creator_name);
-            this.staySameTemplate.Controls.Add(this.panel5);
-            this.staySameTemplate.Controls.Add(this.panel7);
-            this.staySameTemplate.Controls.Add(this.panel4);
-            this.staySameTemplate.Controls.Add(this.panel3);
-            this.staySameTemplate.Dock = System.Windows.Forms.DockStyle.Right;
-            this.staySameTemplate.Location = new System.Drawing.Point(195, 40);
-            this.staySameTemplate.Name = "staySameTemplate";
-            this.staySameTemplate.Size = new System.Drawing.Size(718, 522);
-            this.staySameTemplate.TabIndex = 19;
+            this.creatorTemplate_panel.BackColor = System.Drawing.Color.Transparent;
+            this.creatorTemplate_panel.Controls.Add(this.panel_edit);
+            this.creatorTemplate_panel.Controls.Add(this.panel_main_creator_image);
+            this.creatorTemplate_panel.Controls.Add(this.allCreatorStatistics_Panel);
+            this.creatorTemplate_panel.Controls.Add(this.panel6);
+            this.creatorTemplate_panel.Controls.Add(this.label_main_creator_name);
+            this.creatorTemplate_panel.Controls.Add(this.panel5);
+            this.creatorTemplate_panel.Controls.Add(this.panel7);
+            this.creatorTemplate_panel.Controls.Add(this.panel4);
+            this.creatorTemplate_panel.Controls.Add(this.panel3);
+            this.creatorTemplate_panel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.creatorTemplate_panel.Location = new System.Drawing.Point(195, 40);
+            this.creatorTemplate_panel.Name = "creatorTemplate_panel";
+            this.creatorTemplate_panel.Size = new System.Drawing.Size(718, 522);
+            this.creatorTemplate_panel.TabIndex = 19;
             // 
             // panel_edit
             // 
@@ -637,14 +636,14 @@ namespace GUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (51)))), ((int) (((byte) (51)))), ((int) (((byte) (51)))));
             this.ClientSize = new System.Drawing.Size(913, 562);
-            this.Controls.Add(this.staySameTemplate);
+            this.Controls.Add(this.creatorTemplate_panel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Location = new System.Drawing.Point(15, 15);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -664,7 +663,7 @@ namespace GUI
             this.panel10.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
-            this.staySameTemplate.ResumeLayout(false);
+            this.creatorTemplate_panel.ResumeLayout(false);
             this.panel_edit.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize) (this.picturebox_edit)).EndInit();
             this.panel_main_creator_image.ResumeLayout(false);
@@ -696,7 +695,7 @@ namespace GUI
         private System.Windows.Forms.PictureBox pictureBox_yt_icon;
         private System.Windows.Forms.Panel yt_panel;
 
-        private System.Windows.Forms.Panel test_panel;
+        private System.Windows.Forms.Panel allCreatorStatistics_Panel;
 
         private System.Windows.Forms.Panel panel_main_creator_image;
         private System.Windows.Forms.PictureBox picturebox_main_creator_image;
@@ -726,7 +725,7 @@ namespace GUI
 
         private System.Windows.Forms.Label label6;
 
-        private System.Windows.Forms.Panel staySameTemplate;
+        private System.Windows.Forms.Panel creatorTemplate_panel;
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
 
