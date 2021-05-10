@@ -7,6 +7,7 @@ namespace GUI
         public MainStartPage()
         {
             InitializeComponent();
+            LoadResources();
         }
     }
 }

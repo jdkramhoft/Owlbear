@@ -43,7 +43,7 @@ namespace GUI
             this.label5 = new System.Windows.Forms.Label();
             this.creator_name_write = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.delete_button = new System.Windows.Forms.Button();
             this.panel_switch_buttons.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -157,26 +157,26 @@ namespace GUI
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.delete_button);
             this.panel1.Location = new System.Drawing.Point(46, 414);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(270, 28);
             this.panel1.TabIndex = 16;
             // 
-            // button1
+            // delete_button
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (167)))), ((int) (((byte) (67)))), ((int) (((byte) (85)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(270, 25);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Delete";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.delete_button.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (167)))), ((int) (((byte) (67)))), ((int) (((byte) (85)))));
+            this.delete_button.FlatAppearance.BorderSize = 0;
+            this.delete_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.delete_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.delete_button.ForeColor = System.Drawing.Color.White;
+            this.delete_button.Location = new System.Drawing.Point(0, 0);
+            this.delete_button.Name = "delete_button";
+            this.delete_button.Size = new System.Drawing.Size(270, 25);
+            this.delete_button.TabIndex = 15;
+            this.delete_button.Text = "Delete";
+            this.delete_button.UseVisualStyleBackColor = false;
+            this.delete_button.Click += new System.EventHandler(this.button1_Click);
             // 
             // Popup
             // 
@@ -204,7 +204,7 @@ namespace GUI
             this.PerformLayout();
         }
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button delete_button;
         private System.Windows.Forms.Panel panel1;
 
         private System.Windows.Forms.Label label5;

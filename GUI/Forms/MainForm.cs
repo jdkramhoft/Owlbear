@@ -48,17 +48,11 @@ namespace GUI
 
         public async void loadCreatorsAndPanels()
         {
+            textbox_search.Text = "";
             _creatorsFromService = (await new CreatorWebServiceThing().GetCreators()).OrderBy(c => c.Name).ToList();
             listCreators();
             var match = _creatorsFromService.FirstOrDefault(c => c.Id == _activeProfileDto?.Id);
-            if (_activeProfileDto != null)
-            {
-                loadActiveasd(match ?? _activeProfileDto, false);
-            }
-            else
-            {
-                loadActiveasd(_creatorsFromService.FirstOrDefault() ?? new CreatorDto(), false);
-            }
+            loadActiveasd(match ?? _creatorsFromService.FirstOrDefault() ?? new CreatorDto(), false);
         }
 
         public void listCreators(string searchTerm = "")
@@ -159,22 +153,18 @@ namespace GUI
                 first_quote_creator_amount.Text = "0";
                 second_tweet_quote_amount.Text = "0";
                 third_tweet_quote_amount.Text = "0";
-                label_quote_amount_bot.Text = "0";
 
                 newest_tweet.Text = "No Tweet available";
                 second_newest_tweet.Text = "No Tweet available";
                 third_newest_tweet.Text = "No Tweet available";
-                label_tweet_text_twitterbot.Text = "No Tweet available";
                 
                 first_tweet_retweet_amount.Text = "0";
                 creator_two_retweet_amount.Text = "0";
                 third_tweet_retweet_amount.Text = "0";
-                label_retweet_amount_bot.Text = "0";
                 
                 first_tweet_likes_amount.Text = "0";
                 second_tweet_likes_amount.Text = "0";
                 third_tweet_likes_amount.Text = "0";
-                label_likes_amount_bot.Text = "0";
                 
             }
 
@@ -198,8 +188,6 @@ namespace GUI
         
         private void button2_Click(object sender, EventArgs e)
         {
-            button_create_new_creator.FlatAppearance.BorderColor = Color.DimGray;
-
             var result = new Popup() {StartPosition = FormStartPosition.CenterScreen}.ShowDialog();
             if (result == DialogResult.OK) loadCreatorsAndPanels();
         }

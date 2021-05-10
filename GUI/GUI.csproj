@@ -37,9 +37,6 @@
       <Compile Include="..\Owlbear\Model\Youtube.cs">
         <Link>DataFromWeb\Model\Youtube.cs</Link>
       </Compile>
-      <Compile Update="Forms\ButtonTemplate.cs">
-        <SubType>UserControl</SubType>
-      </Compile>
     </ItemGroup>
 
     <ItemGroup>

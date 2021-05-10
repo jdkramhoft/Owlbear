@@ -19,6 +19,9 @@ namespace GUI
             Creator = creator ?? new CreatorDto();
             
             InitializeComponent();
+            
+            button_create_creator.Text = CreatingNew ? "Create" : "Update";
+            delete_button.Visible = !CreatingNew;
 
             // if else ish
             // creator_name_write.Text = Creator.Name;
@@ -67,26 +70,11 @@ namespace GUI
             
             if (resultDTO != null) DialogResult = DialogResult.OK;
         }
-        
-        public void SetButton()
-        {
-            ButtonTemplate buttonTemplate = new ButtonTemplate() {Dock = DockStyle.Fill};
-            
-            /*
-            if (!creatingNew)
-            {
-                button_create_creator.Visible = false;
-                panel_switch_buttons.Controls.Add(buttonTemplate);
-                buttonTemplate.Show();
-                buttonTemplate.BringToFront();
-            }
-            */
-        }
 
-
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
+            var result = await new CreatorWebServiceThing().DeleteCreator(Creator.Id);
+            if (result != null) DialogResult = DialogResult.OK;
         }
     }
 }

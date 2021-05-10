@@ -25,7 +25,7 @@ namespace GUI.DataFromWeb
             }
             catch (JsonException e)
             {
-                Console.WriteLine("Uh oh! JSON");
+                Console.WriteLine("Get specific error");
                 throw; // TODO: Throw new custom exception
             }
         }
@@ -42,7 +42,7 @@ namespace GUI.DataFromWeb
             }
             catch (JsonException e)
             {
-                Console.WriteLine("Uh oh! JSON GetCreators");
+                Console.WriteLine("Get all error");
                 throw; // TODO: Throw new custom exception
             }
         }
@@ -60,7 +60,7 @@ namespace GUI.DataFromWeb
             }
             catch (JsonException e)
             {
-                Console.WriteLine("Uh oh! JSON");
+                Console.WriteLine("Update error");
                 throw; // TODO: Throw new custom exception
             }
         }
@@ -77,7 +77,7 @@ namespace GUI.DataFromWeb
             }
             catch (JsonException e)
             {
-                Console.WriteLine("Uh oh! JSON");
+                Console.WriteLine("Delete error");
                 throw; // TODO: Throw new custom exception
             }
         }
@@ -95,7 +95,7 @@ namespace GUI.DataFromWeb
             }
             catch (JsonException e)
             {
-                Console.WriteLine("Uh oh! JSON");
+                Console.WriteLine("Create error");
                 throw; // TODO: Throw new custom exception
             }
         }
