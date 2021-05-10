@@ -53,17 +53,6 @@ namespace GUI
             this.yt_third_num = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.yt_first_num = new System.Windows.Forms.Label();
-            this.insta_panel = new System.Windows.Forms.Panel();
-            this.insta_third_name = new System.Windows.Forms.Label();
-            this.insta_first_name = new System.Windows.Forms.Label();
-            this.insta_second_name = new System.Windows.Forms.Label();
-            this.insta_label = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.insta_second_num = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.insta_third_num = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.insta_first_num = new System.Windows.Forms.Label();
             this.top_creators_label = new System.Windows.Forms.Label();
             this.twitch_panel = new System.Windows.Forms.Panel();
             this.twitch_third_name = new System.Windows.Forms.Label();
@@ -84,10 +73,6 @@ namespace GUI
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
-            this.insta_panel.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.twitch_panel.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -334,126 +319,6 @@ namespace GUI
             this.yt_first_num.Text = "1.000.000";
             this.yt_first_num.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // insta_panel
-            // 
-            this.insta_panel.Controls.Add(this.insta_third_name);
-            this.insta_panel.Controls.Add(this.insta_first_name);
-            this.insta_panel.Controls.Add(this.insta_second_name);
-            this.insta_panel.Controls.Add(this.insta_label);
-            this.insta_panel.Controls.Add(this.panel2);
-            this.insta_panel.Controls.Add(this.panel3);
-            this.insta_panel.Controls.Add(this.panel7);
-            this.insta_panel.Location = new System.Drawing.Point(402, 276);
-            this.insta_panel.Name = "insta_panel";
-            this.insta_panel.Size = new System.Drawing.Size(248, 185);
-            this.insta_panel.TabIndex = 21;
-            // 
-            // insta_third_name
-            // 
-            this.insta_third_name.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.insta_third_name.ForeColor = System.Drawing.Color.White;
-            this.insta_third_name.Location = new System.Drawing.Point(175, 111);
-            this.insta_third_name.Name = "insta_third_name";
-            this.insta_third_name.Size = new System.Drawing.Size(70, 15);
-            this.insta_third_name.TabIndex = 14;
-            this.insta_third_name.Text = "Name";
-            this.insta_third_name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // insta_first_name
-            // 
-            this.insta_first_name.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.insta_first_name.ForeColor = System.Drawing.Color.White;
-            this.insta_first_name.Location = new System.Drawing.Point(90, 66);
-            this.insta_first_name.Name = "insta_first_name";
-            this.insta_first_name.Size = new System.Drawing.Size(73, 18);
-            this.insta_first_name.TabIndex = 13;
-            this.insta_first_name.Text = "Name";
-            this.insta_first_name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // insta_second_name
-            // 
-            this.insta_second_name.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.insta_second_name.ForeColor = System.Drawing.Color.White;
-            this.insta_second_name.Location = new System.Drawing.Point(3, 95);
-            this.insta_second_name.Name = "insta_second_name";
-            this.insta_second_name.Size = new System.Drawing.Size(73, 13);
-            this.insta_second_name.TabIndex = 1;
-            this.insta_second_name.Text = "Name";
-            this.insta_second_name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // insta_label
-            // 
-            this.insta_label.BackColor = System.Drawing.Color.Transparent;
-            this.insta_label.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.insta_label.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (165)))), ((int) (((byte) (67)))), ((int) (((byte) (167)))));
-            this.insta_label.Location = new System.Drawing.Point(3, 11);
-            this.insta_label.Name = "insta_label";
-            this.insta_label.Size = new System.Drawing.Size(162, 45);
-            this.insta_label.TabIndex = 12;
-            this.insta_label.Text = "INSTAGRAM";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (165)))), ((int) (((byte) (67)))), ((int) (((byte) (167)))));
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel2.Controls.Add(this.insta_second_num);
-            this.panel2.Location = new System.Drawing.Point(3, 111);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(73, 71);
-            this.panel2.TabIndex = 2;
-            // 
-            // insta_second_num
-            // 
-            this.insta_second_num.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.insta_second_num.ForeColor = System.Drawing.Color.White;
-            this.insta_second_num.Location = new System.Drawing.Point(3, 18);
-            this.insta_second_num.Name = "insta_second_num";
-            this.insta_second_num.Size = new System.Drawing.Size(67, 15);
-            this.insta_second_num.TabIndex = 0;
-            this.insta_second_num.Text = "1.000.000";
-            this.insta_second_num.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (165)))), ((int) (((byte) (67)))), ((int) (((byte) (167)))));
-            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel3.Controls.Add(this.insta_third_num);
-            this.panel3.Location = new System.Drawing.Point(175, 129);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(73, 53);
-            this.panel3.TabIndex = 3;
-            // 
-            // insta_third_num
-            // 
-            this.insta_third_num.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.insta_third_num.ForeColor = System.Drawing.Color.White;
-            this.insta_third_num.Location = new System.Drawing.Point(3, 12);
-            this.insta_third_num.Name = "insta_third_num";
-            this.insta_third_num.Size = new System.Drawing.Size(67, 16);
-            this.insta_third_num.TabIndex = 1;
-            this.insta_third_num.Text = "1.000.000";
-            this.insta_third_num.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (165)))), ((int) (((byte) (67)))), ((int) (((byte) (167)))));
-            this.panel7.Controls.Add(this.insta_first_num);
-            this.panel7.Location = new System.Drawing.Point(90, 87);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(73, 95);
-            this.panel7.TabIndex = 4;
-            // 
-            // insta_first_num
-            // 
-            this.insta_first_num.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.insta_first_num.ForeColor = System.Drawing.Color.White;
-            this.insta_first_num.Location = new System.Drawing.Point(3, 24);
-            this.insta_first_num.Name = "insta_first_num";
-            this.insta_first_num.Size = new System.Drawing.Size(67, 15);
-            this.insta_first_num.TabIndex = 1;
-            this.insta_first_num.Text = "1.000.000";
-            this.insta_first_num.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // top_creators_label
             // 
             this.top_creators_label.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
@@ -584,14 +449,13 @@ namespace GUI
             this.twitch_first_num.Text = "1.000.000";
             this.twitch_first_num.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // mainStartPage
+            // MainStartPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (51)))), ((int) (((byte) (51)))), ((int) (((byte) (51)))));
             this.Controls.Add(this.twitter_panel);
             this.Controls.Add(this.yt_panel);
-            this.Controls.Add(this.insta_panel);
             this.Controls.Add(this.top_creators_label);
             this.Controls.Add(this.twitch_panel);
             this.Location = new System.Drawing.Point(15, 15);
@@ -605,10 +469,6 @@ namespace GUI
             this.panel9.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
-            this.insta_panel.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
             this.twitch_panel.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -616,25 +476,14 @@ namespace GUI
             this.ResumeLayout(false);
         }
 
-        private System.Windows.Forms.Label insta_first_name;
-        private System.Windows.Forms.Label insta_first_num;
-        private System.Windows.Forms.Label insta_label;
-        private System.Windows.Forms.Panel insta_panel;
-        private System.Windows.Forms.Label insta_second_name;
-        private System.Windows.Forms.Label insta_second_num;
-        private System.Windows.Forms.Label insta_third_name;
-        private System.Windows.Forms.Label insta_third_num;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label top_creators_label;
         private System.Windows.Forms.Label twitch_first_name;

@@ -29,7 +29,7 @@ namespace GUI
         private MainStartPage mainStartPage = new MainStartPage() {Dock = DockStyle.Fill};
         private CreatorDto _activeProfileDto;
         private List<CreatorDto> _creatorsFromService;
-        
+
         public MainForm()
         {
             InitializeComponent();
@@ -88,6 +88,8 @@ namespace GUI
             var creatorIndex = _creatorsFromService.FindIndex(c => c.Id == creator.Id);
             _creatorsFromService[creatorIndex] = await new CreatorWebServiceThing().GetCreator(creator.Id);
             
+            var path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
+            
             allCreatorStatistics_Panel.Visible = !forceProfileView;
             
             label_main_creator_name.Text = creator.Name;
@@ -95,6 +97,32 @@ namespace GUI
             if (creator.Twitter?.ImageUrl != null)
             { 
                 picturebox_main_creator_image.Load(creator.Twitter?.ImageUrl);
+                
+                picturebox_creator_twitter_image_1.Load(creator.Twitter?.ImageUrl);
+                
+                System.Drawing.Drawing2D.GraphicsPath gp1 = new System.Drawing.Drawing2D.GraphicsPath();
+                gp1.AddEllipse(0, 0, picturebox_creator_twitter_image_1.Width - 3, picturebox_creator_twitter_image_1.Height - 3);
+                Region r1 = new Region(gp1);
+                picturebox_creator_twitter_image_1.Region = r1;
+                picturebox_creator_twitter_image_1.SizeMode = PictureBoxSizeMode.StretchImage;
+                
+                picturebox_creator_twitter_image_2.Load(creator.Twitter?.ImageUrl);
+                
+                System.Drawing.Drawing2D.GraphicsPath gp2 = new System.Drawing.Drawing2D.GraphicsPath();
+                gp2.AddEllipse(0, 0, picturebox_creator_twitter_image_2.Width - 3, picturebox_creator_twitter_image_2.Height - 3);
+                Region r2 = new Region(gp2);
+                picturebox_creator_twitter_image_2.Region = r2;
+                picturebox_creator_twitter_image_2.SizeMode = PictureBoxSizeMode.StretchImage;
+                
+                picturebox_creator_twitter_image_3.Load(creator.Twitter?.ImageUrl);
+                
+                System.Drawing.Drawing2D.GraphicsPath gp3 = new System.Drawing.Drawing2D.GraphicsPath();
+                gp3.AddEllipse(0, 0, picturebox_creator_twitter_image_3.Width - 3, picturebox_creator_twitter_image_3.Height - 3);
+                Region r3 = new Region(gp3);
+                picturebox_creator_twitter_image_3.Region = r3;
+                picturebox_creator_twitter_image_3.SizeMode = PictureBoxSizeMode.StretchImage;
+
+                
             }
             else if (creator.Twitch?.ProfileImageUrl != null)
             {
@@ -102,10 +130,33 @@ namespace GUI
             }
             else
             {
-                var path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
                 picturebox_main_creator_image.Image = Image.FromFile($@"{path}\Images\unknown_image.png");
+                
+                picturebox_creator_twitter_image_1.Image = Image.FromFile($@"{path}\Images\unknown_image.png");
+                
+                System.Drawing.Drawing2D.GraphicsPath gp1 = new System.Drawing.Drawing2D.GraphicsPath();
+                gp1.AddEllipse(0, 0, picturebox_creator_twitter_image_1.Width - 3, picturebox_creator_twitter_image_1.Height - 3);
+                Region r1 = new Region(gp1);
+                picturebox_creator_twitter_image_1.Region = r1;
+                picturebox_creator_twitter_image_1.SizeMode = PictureBoxSizeMode.StretchImage;
+                
+                picturebox_creator_twitter_image_2.Image = Image.FromFile($@"{path}\Images\unknown_image.png");
+                
+                System.Drawing.Drawing2D.GraphicsPath gp2 = new System.Drawing.Drawing2D.GraphicsPath();
+                gp2.AddEllipse(0, 0, picturebox_creator_twitter_image_2.Width - 3, picturebox_creator_twitter_image_2.Height - 3);
+                Region r2 = new Region(gp2);
+                picturebox_creator_twitter_image_2.Region = r2;
+                picturebox_creator_twitter_image_2.SizeMode = PictureBoxSizeMode.StretchImage;
+                
+                picturebox_creator_twitter_image_3.Image = Image.FromFile($@"{path}\Images\unknown_image.png");
+                
+                System.Drawing.Drawing2D.GraphicsPath gp3 = new System.Drawing.Drawing2D.GraphicsPath();
+                gp3.AddEllipse(0, 0, picturebox_creator_twitter_image_3.Width - 3, picturebox_creator_twitter_image_3.Height - 3);
+                Region r3 = new Region(gp3);
+                picturebox_creator_twitter_image_3.Region = r3;
+                picturebox_creator_twitter_image_3.SizeMode = PictureBoxSizeMode.StretchImage;
             }
-            
+
             var na = "Not available";
             // Hvorfor der skal/kan være ? efter eks. Youtube;
             // https://stackoverflow.com/questions/28352072/what-does-question-mark-and-dot-operator-mean-in-c-sharp-6-0
