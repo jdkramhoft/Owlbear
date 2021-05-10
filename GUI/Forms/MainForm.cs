@@ -155,6 +155,27 @@ namespace GUI
                 Region r3 = new Region(gp3);
                 picturebox_creator_twitter_image_3.Region = r3;
                 picturebox_creator_twitter_image_3.SizeMode = PictureBoxSizeMode.StretchImage;
+                
+                first_quote_creator_amount.Text = "0";
+                second_tweet_quote_amount.Text = "0";
+                third_tweet_quote_amount.Text = "0";
+                label_quote_amount_bot.Text = "0";
+
+                newest_tweet.Text = "No Tweet available";
+                second_newest_tweet.Text = "No Tweet available";
+                third_newest_tweet.Text = "No Tweet available";
+                label_tweet_text_twitterbot.Text = "No Tweet available";
+                
+                first_tweet_retweet_amount.Text = "0";
+                creator_two_retweet_amount.Text = "0";
+                third_tweet_retweet_amount.Text = "0";
+                label_retweet_amount_bot.Text = "0";
+                
+                first_tweet_likes_amount.Text = "0";
+                second_tweet_likes_amount.Text = "0";
+                third_tweet_likes_amount.Text = "0";
+                label_likes_amount_bot.Text = "0";
+                
             }
 
             var na = "Not available";

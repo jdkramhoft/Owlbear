@@ -126,7 +126,7 @@ namespace GUI
             label_yt.Text = "YOUTUBE";
             label_twitter.Text = "TWITTER";
             label_twitch.Text = "TWITCH";
-            
+
             label_twitter_tweet.Text = "Newest tweets";
         }
 
@@ -210,7 +210,7 @@ namespace GUI
             this.label8 = new System.Windows.Forms.Label();
             this.label_twitter_tweet = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.first_quote_creator_amount = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.creator_retweet_icon_first = new System.Windows.Forms.PictureBox();
             this.panel14 = new System.Windows.Forms.Panel();
@@ -501,7 +501,7 @@ namespace GUI
             // panel24
             // 
             this.panel24.Controls.Add(this.picturebox_likes_bot);
-            this.panel24.Location = new System.Drawing.Point(205, 36);
+            this.panel24.Location = new System.Drawing.Point(188, 36);
             this.panel24.Name = "panel24";
             this.panel24.Size = new System.Drawing.Size(24, 24);
             this.panel24.TabIndex = 28;
@@ -518,7 +518,7 @@ namespace GUI
             // 
             this.label_likes_amount_bot.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.label_likes_amount_bot.ForeColor = System.Drawing.Color.White;
-            this.label_likes_amount_bot.Location = new System.Drawing.Point(235, 38);
+            this.label_likes_amount_bot.Location = new System.Drawing.Point(218, 38);
             this.label_likes_amount_bot.Name = "label_likes_amount_bot";
             this.label_likes_amount_bot.Size = new System.Drawing.Size(42, 18);
             this.label_likes_amount_bot.TabIndex = 27;
@@ -526,7 +526,7 @@ namespace GUI
             // panel25
             // 
             this.panel25.Controls.Add(this.picturebox_retweet_bot);
-            this.panel25.Location = new System.Drawing.Point(133, 32);
+            this.panel25.Location = new System.Drawing.Point(116, 32);
             this.panel25.Name = "panel25";
             this.panel25.Size = new System.Drawing.Size(24, 24);
             this.panel25.TabIndex = 26;
@@ -543,7 +543,7 @@ namespace GUI
             // 
             this.label_retweet_amount_bot.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.label_retweet_amount_bot.ForeColor = System.Drawing.Color.White;
-            this.label_retweet_amount_bot.Location = new System.Drawing.Point(160, 38);
+            this.label_retweet_amount_bot.Location = new System.Drawing.Point(143, 38);
             this.label_retweet_amount_bot.Name = "label_retweet_amount_bot";
             this.label_retweet_amount_bot.Size = new System.Drawing.Size(42, 18);
             this.label_retweet_amount_bot.TabIndex = 25;
@@ -551,7 +551,7 @@ namespace GUI
             // panel26
             // 
             this.panel26.Controls.Add(this.picturebox_quote_bot);
-            this.panel26.Location = new System.Drawing.Point(58, 36);
+            this.panel26.Location = new System.Drawing.Point(41, 36);
             this.panel26.Name = "panel26";
             this.panel26.Size = new System.Drawing.Size(24, 24);
             this.panel26.TabIndex = 24;
@@ -588,12 +588,13 @@ namespace GUI
             this.label_tweet_text_twitterbot.Name = "label_tweet_text_twitterbot";
             this.label_tweet_text_twitterbot.Size = new System.Drawing.Size(236, 36);
             this.label_tweet_text_twitterbot.TabIndex = 24;
+            this.label_tweet_text_twitterbot.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label_quote_amount_bot
             // 
             this.label_quote_amount_bot.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.label_quote_amount_bot.ForeColor = System.Drawing.Color.White;
-            this.label_quote_amount_bot.Location = new System.Drawing.Point(85, 37);
+            this.label_quote_amount_bot.Location = new System.Drawing.Point(68, 37);
             this.label_quote_amount_bot.Name = "label_quote_amount_bot";
             this.label_quote_amount_bot.Size = new System.Drawing.Size(42, 18);
             this.label_quote_amount_bot.TabIndex = 23;
@@ -728,6 +729,7 @@ namespace GUI
             // 
             // second_tweet_likes_amount
             // 
+            this.second_tweet_likes_amount.ForeColor = System.Drawing.Color.White;
             this.second_tweet_likes_amount.Location = new System.Drawing.Point(218, 37);
             this.second_tweet_likes_amount.Name = "second_tweet_likes_amount";
             this.second_tweet_likes_amount.Size = new System.Drawing.Size(42, 20);
@@ -789,6 +791,7 @@ namespace GUI
             this.second_newest_tweet.Name = "second_newest_tweet";
             this.second_newest_tweet.Size = new System.Drawing.Size(236, 36);
             this.second_newest_tweet.TabIndex = 24;
+            this.second_newest_tweet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // second_tweet_quote_amount
             // 
@@ -916,6 +919,7 @@ namespace GUI
             this.third_newest_tweet.Name = "third_newest_tweet";
             this.third_newest_tweet.Size = new System.Drawing.Size(236, 36);
             this.third_newest_tweet.TabIndex = 24;
+            this.third_newest_tweet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // third_tweet_quote_amount
             // 
@@ -949,7 +953,7 @@ namespace GUI
             // 
             this.panel8.BackColor = System.Drawing.Color.Transparent;
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel8.Controls.Add(this.label3);
+            this.panel8.Controls.Add(this.first_quote_creator_amount);
             this.panel8.Controls.Add(this.panel5);
             this.panel8.Controls.Add(this.panel14);
             this.panel8.Controls.Add(this.first_tweet_retweet_amount);
@@ -963,14 +967,14 @@ namespace GUI
             this.panel8.Size = new System.Drawing.Size(280, 61);
             this.panel8.TabIndex = 19;
             // 
-            // label3
+            // first_quote_creator_amount
             // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(68, 39);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 18);
-            this.label3.TabIndex = 29;
+            this.first_quote_creator_amount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.first_quote_creator_amount.ForeColor = System.Drawing.Color.White;
+            this.first_quote_creator_amount.Location = new System.Drawing.Point(68, 39);
+            this.first_quote_creator_amount.Name = "first_quote_creator_amount";
+            this.first_quote_creator_amount.Size = new System.Drawing.Size(42, 18);
+            this.first_quote_creator_amount.TabIndex = 29;
             // 
             // panel5
             // 
@@ -1053,6 +1057,7 @@ namespace GUI
             this.newest_tweet.Name = "newest_tweet";
             this.newest_tweet.Size = new System.Drawing.Size(236, 36);
             this.newest_tweet.TabIndex = 24;
+            this.newest_tweet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // first_tweet_likes_amount
             // 
@@ -1211,7 +1216,7 @@ namespace GUI
         private System.Windows.Forms.Label label1;
         //private System.Windows.Forms.Label label2;
         // private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label first_quote_creator_amount;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.PictureBox second_tweet_quote_icon;
         private System.Windows.Forms.PictureBox creator_retweet_icon_first;
