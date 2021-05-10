@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
 
 namespace Owlbear.Model
 {
@@ -20,5 +19,14 @@ namespace Owlbear.Model
         public string Description { get; set; }
         public string ImageUrl { get; set; }
         public List<Tweet> Tweets { get; set; }
+
+        public Twitter Copy()
+        {
+            return new()
+            {
+                TwitterId = TwitterId, RemoteId = RemoteId, Description = Description, Followers = Followers,
+                Handle = Handle, Tweets = new List<Tweet>(), ImageUrl = ImageUrl
+            };
+        }
     }
 }

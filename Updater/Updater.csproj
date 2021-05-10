@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Include="..\Owlbear\Dto\Creator\CreateCreatorDto.cs">
+        <Link>Creator\CreateCreatorDto.cs</Link>
+      </Compile>
+      <Compile Include="..\Owlbear\Dto\Creator\CreatorDto.cs">
+        <Link>Creator\CreatorDto.cs</Link>
+      </Compile>
+      <Compile Include="..\Owlbear\Dto\Creator\CreatorRecordDto.cs">
+        <Link>Creator\CreatorRecordDto.cs</Link>
+      </Compile>
+      <Compile Include="..\Owlbear\Dto\Creator\UpdateCreatorDto.cs">
+        <Link>Creator\UpdateCreatorDto.cs</Link>
+      </Compile>
+      <Compile Include="..\Owlbear\Model\Creator.cs">
+        <Link>Model\Creator.cs</Link>
+      </Compile>
+      <Compile Include="..\Owlbear\Model\CreatorRecord.cs">
+        <Link>Model\CreatorRecord.cs</Link>
+      </Compile>
+      <Compile Include="..\Owlbear\Model\Tweet.cs">
+        <Link>Model\Tweet.cs</Link>
+      </Compile>
+      <Compile Include="..\Owlbear\Model\Twitch.cs">
+        <Link>Model\Twitch.cs</Link>
+      </Compile>
+      <Compile Include="..\Owlbear\Model\Twitter.cs">
+        <Link>Model\Twitter.cs</Link>
+      </Compile>
+      <Compile Include="..\Owlbear\Model\Youtube.cs">
+        <Link>Model\Youtube.cs</Link>
+      </Compile>
+    </ItemGroup>
+
+</Project>

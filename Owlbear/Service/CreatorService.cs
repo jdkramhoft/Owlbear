@@ -91,9 +91,10 @@ namespace Owlbear.Service
         public async Task<Creator> RefreshCreatorAsync(int id)
         {
             var creator = await _creatorRepository.GetAsync(id);
+            var previous = creator.Copy();
             await RefreshSocials(creator);
             var updated = await _creatorRepository.UpdateAsync(creator);
-            await _milestoneService.TweetMilestones(creator, updated);
+            await _milestoneService.TweetMilestones(previous, updated);
             return updated;
         }
 

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Owlbear.Model;
@@ -21,14 +22,22 @@ namespace Owlbear.Service
 
         private static void AddMilestones(ICollection<int> milestones)
         {
-            for (var i = 1; i < 9; i++)
+            for (var i = 0; i < 19; i++)
             {
-                milestones.Add(100_00 * i);
+                milestones.Add(5000 * i);
             }
-            for (var i = 1; i <= 100; i++)
+            for (var i = 1; i <= 9; i++)
+            {
+                milestones.Add(100_000 * i);
+                milestones.Add(100_000 * i + 50_000);
+            }
+
+            for (var i = 1; i <= 10; i++)
             {
                 milestones.Add(1_000_000 * i);
             }
+
+            milestones.Add(2682526);
         }
 
         public async Task TweetMilestones(Creator creator, Creator updated)
@@ -49,7 +58,7 @@ namespace Owlbear.Service
             {
                 var milestoneReached = previous.Twitter.Followers < milestone && milestone <= updated.Twitter.Followers;
                 if (!milestoneReached) continue;
-                var msg = $"@{updated.Twitter.Handle} has reached {milestone} Twitter followers!";
+                var msg = $"Congratulations to @{updated.Twitter.Handle} for reaching {milestone} Twitter followers!";
                 await SendTweet(msg);
             }
         }
@@ -61,7 +70,7 @@ namespace Owlbear.Service
                 var milestoneReached = previous.Youtube.Subscribers < milestone && milestone <= updated.Youtube.Subscribers;
                 if (!milestoneReached) continue;
                 var handle = updated.Twitter != null ? updated.Twitter.Handle : updated.Name;
-                var msg = $"@{handle} has reached {milestone} Youtube subscribers!";
+                var msg = $"Congratulations to @{handle} for reaching {milestone} Youtube subscribers!";
                 await SendTweet(msg);
             }
         }
@@ -73,7 +82,7 @@ namespace Owlbear.Service
                 var milestoneReached = previous.Twitch.Followers < milestone && milestone <= updated.Twitch.Followers;
                 if (!milestoneReached) continue;
                 var handle = updated.Twitter != null ? updated.Twitter.Handle : updated.Name;
-                var msg = $"@{handle} has reached {milestone} Twitch followers!";
+                var msg = $"Congratulations to @{handle} for reaching {milestone} Twitch followers!";
                 await SendTweet(msg);
             }
         }
