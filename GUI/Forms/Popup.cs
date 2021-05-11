@@ -75,8 +75,16 @@ namespace GUI
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            var result = await new CreatorWebServiceThing().DeleteCreator(Creator.Id);
-            if (result != null) DialogResult = DialogResult.OK;
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete " + Creator.Name + " ?", "Warning", MessageBoxButtons.YesNo);
+            if(dialogResult == DialogResult.Yes)
+            {
+                var result = await new CreatorWebServiceThing().DeleteCreator(Creator.Id);
+                if (result != null) DialogResult = DialogResult.OK;
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //nothing, just closes
+            }
         }
 
         private void creator_name_write_TextChanged(object sender, EventArgs e)
@@ -84,6 +92,24 @@ namespace GUI
             if (creator_name_write.Text.Length > 0)
             {
                 button_create_creator.Enabled = true;
+            }
+        }
+
+        private void yt_name_write_MouseHover_1(object sender, EventArgs e)
+        {
+            toolTip1.Show("Use the end of a creator's URL, it looks like this; UCWxlUwW9BgGISaakjGM37aw",yt_name_write);
+        }
+
+        private void yt_name_write_MouseClick(object sender, MouseEventArgs e)
+        {
+            toolTip1.Show("Use the end of a creator's URL, it looks like this; UCWxlUwW9BgGISaakjGM37aw",yt_name_write);
+        }
+
+        private void button_create_creator_MouseHover(object sender, EventArgs e)
+        {
+            if (creator_name_write.Text.Length < 0)
+            {
+                toolTip1.Show("Set a name for the creator first",button_create_creator);
             }
         }
     }

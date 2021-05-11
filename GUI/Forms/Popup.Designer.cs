@@ -31,6 +31,7 @@ namespace GUI
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.yt_name_write = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,6 +45,7 @@ namespace GUI
             this.creator_name_write = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.delete_button = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel_switch_buttons.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -55,6 +57,8 @@ namespace GUI
             this.yt_name_write.Name = "yt_name_write";
             this.yt_name_write.Size = new System.Drawing.Size(270, 20);
             this.yt_name_write.TabIndex = 0;
+            this.yt_name_write.MouseClick += new System.Windows.Forms.MouseEventHandler(this.yt_name_write_MouseClick);
+            this.yt_name_write.MouseHover += new System.EventHandler(this.yt_name_write_MouseHover_1);
             // 
             // label1
             // 
@@ -136,6 +140,7 @@ namespace GUI
             this.button_create_creator.Text = "Create";
             this.button_create_creator.UseVisualStyleBackColor = false;
             this.button_create_creator.Click += new System.EventHandler(this.button_create_creator_Click);
+            this.button_create_creator.MouseHover += new System.EventHandler(this.button_create_creator_MouseHover);
             // 
             // label5
             // 
@@ -204,6 +209,8 @@ namespace GUI
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.ToolTip toolTip1;
 
         private System.Windows.Forms.Button delete_button;
         private System.Windows.Forms.Panel panel1;
