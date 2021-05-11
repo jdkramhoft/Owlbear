@@ -20,6 +20,8 @@ namespace GUI
             
             InitializeComponent();
             
+            button_create_creator.Enabled = false;
+            
             button_create_creator.Text = CreatingNew ? "Create" : "Update";
             delete_button.Visible = !CreatingNew;
 
@@ -75,6 +77,14 @@ namespace GUI
         {
             var result = await new CreatorWebServiceThing().DeleteCreator(Creator.Id);
             if (result != null) DialogResult = DialogResult.OK;
+        }
+
+        private void creator_name_write_TextChanged(object sender, EventArgs e)
+        {
+            if (creator_name_write.Text.Length > 0)
+            {
+                button_create_creator.Enabled = true;
+            }
         }
     }
 }

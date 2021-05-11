@@ -154,6 +154,7 @@ namespace GUI
             this.creator_name_write.Name = "creator_name_write";
             this.creator_name_write.Size = new System.Drawing.Size(271, 20);
             this.creator_name_write.TabIndex = 15;
+            this.creator_name_write.TextChanged += new System.EventHandler(this.creator_name_write_TextChanged);
             // 
             // panel1
             // 

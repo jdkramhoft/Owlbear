@@ -243,7 +243,7 @@ namespace GUI
         {
             // Console.WriteLine(creator.Twitter != null);
             // Console.WriteLine(creator.Twitter?.Tweets[0] != null);
-            // Console.WriteLine(creator.Twitter.Tweets.First().Text);
+            // Console.WriteLine(creator.Twitter.Tweets[1].Text);
             // newest_tweet.Text = creator.Twitter.Tweets.First().Text;
         }
     }

@@ -36,9 +36,9 @@ namespace GUI
             var size = new Size(14,14);
              var sizemode = PictureBoxSizeMode.StretchImage;
              
-             picturebox_icon_twitterbox.Image = Image.FromFile($@"{path}\Images\twitterbot.png");
-             picturebox_icon_twitterbox.Size = new Size(25,22);
-             picturebox_icon_twitterbox.SizeMode = PictureBoxSizeMode.StretchImage;
+             twitterbot_image.Image = Image.FromFile($@"{path}\Images\twitterbot.png");
+             twitterbot_image.Size = new Size(25,22);
+             twitterbot_image.SizeMode = PictureBoxSizeMode.StretchImage;
             
              picturebox_quote_bot.Image = Image.FromFile($@"{path}\Images\queote.png");
              picturebox_quote_bot.Size = size;
@@ -63,6 +63,37 @@ namespace GUI
              Region r1 = new Region(gp1);
              picturebox_twitterbot_image_tweet_1.Region = r1;
              picturebox_twitterbot_image_tweet_1.SizeMode = PictureBoxSizeMode.StretchImage;
+             
+             twitter_image_2.Image = Image.FromFile($@"{path}\Images\twitterbot_twitter.jpg");
+             //https://stackoverflow.com/questions/7731855/rounded-edges-in-picturebox-c-sharp
+             System.Drawing.Drawing2D.GraphicsPath gp2 = new System.Drawing.Drawing2D.GraphicsPath();
+             gp2.AddEllipse(0, 0, twitter_image_2.Width - 3, twitter_image_2.Height - 3);
+             Region r2 = new Region(gp1);
+             twitter_image_2.Region = r2;
+             twitter_image_2.SizeMode = PictureBoxSizeMode.StretchImage;
+
+             quote.Image = Image.FromFile($@"{path}\Images\queote.png");
+             quote.Size = size;
+             quote.SizeMode = sizemode;
+            
+             retweet.Image = Image.FromFile($@"{path}\Images\retweet.png");
+             retweet.Size = new Size(22,22);
+             retweet.SizeMode = sizemode;
+            
+             likes.Image = Image.FromFile($@"{path}\Images\like.png");
+             likes.Size = size;
+             likes.SizeMode = sizemode;
+
+             label_quote_amount_bot.Text = "0";
+             label_retweet_amount_bot.Text = "0";
+             label_likes_amount_bot.Text = "0";
+                
+             quote_text.Text = "0";
+             retweet_text.Text = "0";
+             likes_text.Text = "0";
+
+             label_tweet_text_twitterbot_1.Text = "No Tweet available";
+             tweet_2.Text = "No Tweet available";
         }
         
 
@@ -109,6 +140,19 @@ namespace GUI
             this.panel6 = new System.Windows.Forms.Panel();
             this.twitch_first_num = new System.Windows.Forms.Label();
             this.panel_area_twitterbot = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.likes = new System.Windows.Forms.PictureBox();
+            this.likes_text = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.retweet = new System.Windows.Forms.PictureBox();
+            this.retweet_text = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.quote = new System.Windows.Forms.PictureBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.twitter_image_2 = new System.Windows.Forms.PictureBox();
+            this.tweet_2 = new System.Windows.Forms.Label();
+            this.quote_text = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.twitterbot_image = new System.Windows.Forms.PictureBox();
             this.twitterbot_tweet = new System.Windows.Forms.Panel();
@@ -124,8 +168,6 @@ namespace GUI
             this.picturebox_twitterbot_image_tweet_1 = new System.Windows.Forms.PictureBox();
             this.label_tweet_text_twitterbot_1 = new System.Windows.Forms.Label();
             this.label_quote_amount_bot = new System.Windows.Forms.Label();
-            this.panel_twitterbot = new System.Windows.Forms.Panel();
-            this.picturebox_icon_twitterbox = new System.Windows.Forms.PictureBox();
             this.label_twitterbot = new System.Windows.Forms.Label();
             this.twitter_panel.SuspendLayout();
             this.panel14.SuspendLayout();
@@ -140,6 +182,15 @@ namespace GUI
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel_area_twitterbot.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize) (this.likes)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize) (this.retweet)).BeginInit();
+            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize) (this.quote)).BeginInit();
+            this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize) (this.twitter_image_2)).BeginInit();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize) (this.twitterbot_image)).BeginInit();
             this.twitterbot_tweet.SuspendLayout();
@@ -151,8 +202,6 @@ namespace GUI
             ((System.ComponentModel.ISupportInitialize) (this.picturebox_quote_bot)).BeginInit();
             this.panel27.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize) (this.picturebox_twitterbot_image_tweet_1)).BeginInit();
-            this.panel_twitterbot.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.picturebox_icon_twitterbox)).BeginInit();
             this.SuspendLayout();
             // 
             // twitter_panel
@@ -528,19 +577,136 @@ namespace GUI
             // panel_area_twitterbot
             // 
             this.panel_area_twitterbot.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (21)))), ((int) (((byte) (30)))), ((int) (((byte) (43)))));
+            this.panel_area_twitterbot.Controls.Add(this.panel1);
             this.panel_area_twitterbot.Controls.Add(this.panel12);
             this.panel_area_twitterbot.Controls.Add(this.twitterbot_tweet);
-            this.panel_area_twitterbot.Controls.Add(this.panel_twitterbot);
             this.panel_area_twitterbot.Controls.Add(this.label_twitterbot);
-            this.panel_area_twitterbot.Location = new System.Drawing.Point(402, 276);
+            this.panel_area_twitterbot.Location = new System.Drawing.Point(390, 276);
             this.panel_area_twitterbot.Name = "panel_area_twitterbot";
-            this.panel_area_twitterbot.Size = new System.Drawing.Size(248, 182);
+            this.panel_area_twitterbot.Size = new System.Drawing.Size(268, 191);
             this.panel_area_twitterbot.TabIndex = 23;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.likes_text);
+            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.retweet_text);
+            this.panel1.Controls.Add(this.panel7);
+            this.panel1.Controls.Add(this.panel8);
+            this.panel1.Controls.Add(this.tweet_2);
+            this.panel1.Controls.Add(this.quote_text);
+            this.panel1.Location = new System.Drawing.Point(12, 120);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(242, 65);
+            this.panel1.TabIndex = 24;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.likes);
+            this.panel2.Location = new System.Drawing.Point(168, 39);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(24, 24);
+            this.panel2.TabIndex = 28;
+            // 
+            // likes
+            // 
+            this.likes.Location = new System.Drawing.Point(3, 4);
+            this.likes.Name = "likes";
+            this.likes.Size = new System.Drawing.Size(18, 18);
+            this.likes.TabIndex = 0;
+            this.likes.TabStop = false;
+            // 
+            // likes_text
+            // 
+            this.likes_text.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.likes_text.ForeColor = System.Drawing.Color.White;
+            this.likes_text.Location = new System.Drawing.Point(195, 42);
+            this.likes_text.Name = "likes_text";
+            this.likes_text.Size = new System.Drawing.Size(33, 18);
+            this.likes_text.TabIndex = 27;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.retweet);
+            this.panel3.Location = new System.Drawing.Point(104, 36);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(24, 24);
+            this.panel3.TabIndex = 26;
+            // 
+            // retweet
+            // 
+            this.retweet.Location = new System.Drawing.Point(3, 4);
+            this.retweet.Name = "retweet";
+            this.retweet.Size = new System.Drawing.Size(18, 18);
+            this.retweet.TabIndex = 0;
+            this.retweet.TabStop = false;
+            // 
+            // retweet_text
+            // 
+            this.retweet_text.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.retweet_text.ForeColor = System.Drawing.Color.White;
+            this.retweet_text.Location = new System.Drawing.Point(131, 41);
+            this.retweet_text.Name = "retweet_text";
+            this.retweet_text.Size = new System.Drawing.Size(31, 18);
+            this.retweet_text.TabIndex = 25;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.quote);
+            this.panel7.Location = new System.Drawing.Point(41, 39);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(24, 24);
+            this.panel7.TabIndex = 24;
+            // 
+            // quote
+            // 
+            this.quote.Location = new System.Drawing.Point(3, 4);
+            this.quote.Name = "quote";
+            this.quote.Size = new System.Drawing.Size(18, 18);
+            this.quote.TabIndex = 0;
+            this.quote.TabStop = false;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.twitter_image_2);
+            this.panel8.Location = new System.Drawing.Point(3, 3);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(32, 33);
+            this.panel8.TabIndex = 23;
+            // 
+            // twitter_image_2
+            // 
+            this.twitter_image_2.Location = new System.Drawing.Point(3, 4);
+            this.twitter_image_2.Name = "twitter_image_2";
+            this.twitter_image_2.Size = new System.Drawing.Size(26, 26);
+            this.twitter_image_2.TabIndex = 0;
+            this.twitter_image_2.TabStop = false;
+            // 
+            // tweet_2
+            // 
+            this.tweet_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.tweet_2.ForeColor = System.Drawing.Color.White;
+            this.tweet_2.Location = new System.Drawing.Point(41, 3);
+            this.tweet_2.Name = "tweet_2";
+            this.tweet_2.Size = new System.Drawing.Size(201, 33);
+            this.tweet_2.TabIndex = 24;
+            this.tweet_2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // quote_text
+            // 
+            this.quote_text.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.quote_text.ForeColor = System.Drawing.Color.White;
+            this.quote_text.Location = new System.Drawing.Point(68, 40);
+            this.quote_text.Name = "quote_text";
+            this.quote_text.Size = new System.Drawing.Size(30, 18);
+            this.quote_text.TabIndex = 23;
             // 
             // panel12
             // 
             this.panel12.Controls.Add(this.twitterbot_image);
-            this.panel12.Location = new System.Drawing.Point(213, 5);
+            this.panel12.Location = new System.Drawing.Point(222, 10);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(32, 33);
             this.panel12.TabIndex = 24;
@@ -564,7 +730,7 @@ namespace GUI
             this.twitterbot_tweet.Controls.Add(this.panel27);
             this.twitterbot_tweet.Controls.Add(this.label_tweet_text_twitterbot_1);
             this.twitterbot_tweet.Controls.Add(this.label_quote_amount_bot);
-            this.twitterbot_tweet.Location = new System.Drawing.Point(3, 43);
+            this.twitterbot_tweet.Location = new System.Drawing.Point(12, 49);
             this.twitterbot_tweet.Name = "twitterbot_tweet";
             this.twitterbot_tweet.Size = new System.Drawing.Size(242, 65);
             this.twitterbot_tweet.TabIndex = 22;
@@ -657,7 +823,7 @@ namespace GUI
             this.label_tweet_text_twitterbot_1.ForeColor = System.Drawing.Color.White;
             this.label_tweet_text_twitterbot_1.Location = new System.Drawing.Point(41, 3);
             this.label_tweet_text_twitterbot_1.Name = "label_tweet_text_twitterbot_1";
-            this.label_tweet_text_twitterbot_1.Size = new System.Drawing.Size(201, 36);
+            this.label_tweet_text_twitterbot_1.Size = new System.Drawing.Size(201, 34);
             this.label_tweet_text_twitterbot_1.TabIndex = 24;
             this.label_tweet_text_twitterbot_1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -669,22 +835,6 @@ namespace GUI
             this.label_quote_amount_bot.Name = "label_quote_amount_bot";
             this.label_quote_amount_bot.Size = new System.Drawing.Size(30, 18);
             this.label_quote_amount_bot.TabIndex = 23;
-            // 
-            // panel_twitterbot
-            // 
-            this.panel_twitterbot.Controls.Add(this.picturebox_icon_twitterbox);
-            this.panel_twitterbot.Location = new System.Drawing.Point(265, 5);
-            this.panel_twitterbot.Name = "panel_twitterbot";
-            this.panel_twitterbot.Size = new System.Drawing.Size(32, 33);
-            this.panel_twitterbot.TabIndex = 22;
-            // 
-            // picturebox_icon_twitterbox
-            // 
-            this.picturebox_icon_twitterbox.Location = new System.Drawing.Point(3, 4);
-            this.picturebox_icon_twitterbox.Name = "picturebox_icon_twitterbox";
-            this.picturebox_icon_twitterbox.Size = new System.Drawing.Size(26, 26);
-            this.picturebox_icon_twitterbox.TabIndex = 0;
-            this.picturebox_icon_twitterbox.TabStop = false;
             // 
             // label_twitterbot
             // 
@@ -723,6 +873,15 @@ namespace GUI
             this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel_area_twitterbot.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize) (this.likes)).EndInit();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize) (this.retweet)).EndInit();
+            this.panel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize) (this.quote)).EndInit();
+            this.panel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize) (this.twitter_image_2)).EndInit();
             this.panel12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize) (this.twitterbot_image)).EndInit();
             this.twitterbot_tweet.ResumeLayout(false);
@@ -734,18 +893,30 @@ namespace GUI
             ((System.ComponentModel.ISupportInitialize) (this.picturebox_quote_bot)).EndInit();
             this.panel27.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize) (this.picturebox_twitterbot_image_tweet_1)).EndInit();
-            this.panel_twitterbot.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize) (this.picturebox_icon_twitterbox)).EndInit();
             this.ResumeLayout(false);
         }
+
+        // private System.Windows.Forms.Label label1;
+        // private System.Windows.Forms.Label label2;
+        // private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox likes;
+        // private System.Windows.Forms.Panel panel1;
+        // private System.Windows.Forms.Panel panel2;
+        // private System.Windows.Forms.Panel panel3;
+        // private System.Windows.Forms.Panel panel7;
+        // private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.PictureBox quote;
+        private System.Windows.Forms.PictureBox retweet;
+        private System.Windows.Forms.Label tweet_2;
+        private System.Windows.Forms.PictureBox twitter_image_2;
 
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.PictureBox twitterbot_image;
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label likes_text;
         //private System.Windows.Forms.Label label1;
         //private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label retweet_text;
         // private System.Windows.Forms.Label label2;
         // private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label_tweet_text_twitterbot_2;
@@ -753,7 +924,7 @@ namespace GUI
         // private System.Windows.Forms.Label label_tweet_text_twitterbot_2;
         //private System.Windows.Forms.Label label4;
         //private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label quote_text;
         // private System.Windows.Forms.Panel panel1;
         // private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel1;
@@ -788,12 +959,10 @@ namespace GUI
         private System.Windows.Forms.Label label_tweet_text_twitterbot_1;
         private System.Windows.Forms.Label label_twitterbot;
         private System.Windows.Forms.Panel panel_area_twitterbot;
-        private System.Windows.Forms.Panel panel_twitterbot;
         private System.Windows.Forms.Panel panel24;
         private System.Windows.Forms.Panel panel25;
         private System.Windows.Forms.Panel panel26;
         private System.Windows.Forms.Panel panel27;
-        private System.Windows.Forms.PictureBox picturebox_icon_twitterbox;
         private System.Windows.Forms.PictureBox picturebox_likes_bot;
         private System.Windows.Forms.PictureBox picturebox_quote_bot;
         private System.Windows.Forms.PictureBox picturebox_retweet_bot;

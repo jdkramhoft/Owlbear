@@ -25,7 +25,7 @@ namespace GUI.DataFromWeb
             }
             catch (JsonException e)
             {
-                Console.WriteLine("Get specific error");
+                Console.WriteLine("Get specific error " + e.StackTrace);
                 throw; // TODO: Throw new custom exception
             }
         }
