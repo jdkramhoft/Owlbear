@@ -93,6 +93,10 @@ namespace GUI
             {
                 button_create_creator.Enabled = true;
             }
+            else
+            {
+                button_create_creator.Enabled = false;
+            }
         }
 
         private void yt_name_write_MouseHover_1(object sender, EventArgs e)
