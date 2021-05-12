@@ -81,6 +81,8 @@ namespace GUI
         {
             var creatorIndex = _creatorsFromService.FindIndex(c => c.Id == creator.Id);
             _creatorsFromService[creatorIndex] = await new CreatorWebServiceThing().GetCreator(creator.Id);
+
+            creator = _creatorsFromService[creatorIndex];
             
             var path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
             
@@ -116,11 +118,31 @@ namespace GUI
                 picturebox_creator_twitter_image_3.Region = r3;
                 picturebox_creator_twitter_image_3.SizeMode = PictureBoxSizeMode.StretchImage;
 
+                newest_tweet.Text = creator.Twitter.Tweets[0].Text;
+                first_quote_creator_amount.Text = creator.Twitter.Tweets[0].Quotes.ToString();
+                first_tweet_retweet_amount.Text = creator.Twitter.Tweets[0].Retweets.ToString();
+                first_tweet_likes_amount.Text = creator.Twitter.Tweets[0].Likes.ToString();
+                
+                second_newest_tweet.Text = creator.Twitter.Tweets[1].Text;
+                second_tweet_quote_amount.Text = creator.Twitter.Tweets[1].Quotes.ToString();
+                creator_two_retweet_amount.Text = creator.Twitter.Tweets[1].Retweets.ToString();
+                second_tweet_likes_amount.Text = creator.Twitter.Tweets[1].Likes.ToString();
+                
+                third_newest_tweet.Text = creator.Twitter.Tweets[2].Text;
+                third_tweet_quote_amount.Text = creator.Twitter.Tweets[2].Quotes.ToString();
+                third_tweet_retweet_amount.Text = creator.Twitter.Tweets[2].Retweets.ToString();
+                third_tweet_likes_amount.Text = creator.Twitter.Tweets[2].Likes.ToString();
                 
             }
             else if (creator.Twitch?.ProfileImageUrl != null)
             {
                 picturebox_main_creator_image.Load(creator.Twitch?.ProfileImageUrl);
+                
+                System.Drawing.Drawing2D.GraphicsPath gp1 = new System.Drawing.Drawing2D.GraphicsPath();
+                gp1.AddEllipse(0, 0, picturebox_main_creator_image.Width - 3, picturebox_main_creator_image.Height - 3);
+                Region r1 = new Region(gp1);
+                picturebox_main_creator_image.Region = r1;
+                picturebox_main_creator_image.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             else
             {
