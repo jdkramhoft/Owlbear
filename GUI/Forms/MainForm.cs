@@ -4,6 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using GUI.DataFromWeb;
 using Owlbear.Dto.Creator;
@@ -26,7 +27,7 @@ namespace GUI
     public partial class MainForm : Form
     {
         // private readonly List<Creator> _creators = new();
-        private MainStartPage mainStartPage = new MainStartPage() {Dock = DockStyle.Fill};
+        private MainStartPage mainStartPage;
         private CreatorDto _activeProfileDto;
         private List<CreatorDto> _creatorsFromService;
 
@@ -36,17 +37,19 @@ namespace GUI
             LoadResources();
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private async void MainForm_Load(object sender, EventArgs e)
         {
             creatorTemplate_panel.Visible = true;
             allCreatorStatistics_Panel.Visible = true;
+            await loadCreatorsAndPanels();
+            mainStartPage = new MainStartPage() {Dock = DockStyle.Fill};
+            mainStartPage.LoadData(_creatorsFromService);
             allCreatorStatistics_Panel.Controls.Add(mainStartPage);
             mainStartPage.Show();
             allCreatorStatistics_Panel.BringToFront();
-            loadCreatorsAndPanels();
         }
 
-        public async void loadCreatorsAndPanels()
+        public async Task loadCreatorsAndPanels()
         {
             textbox_search.Text = "";
             _creatorsFromService = (await new CreatorWebServiceThing().GetCreators()).OrderBy(c => c.Name).ToList();
