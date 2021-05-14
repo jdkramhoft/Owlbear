@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Owlbear.Dto.Creator;
+using Owlbear.Dto.Milestone;
 
 namespace GUI.DataFromWeb
 {
     public class CreatorWebServiceThing
     {
         private const string CreatorApi = "https://localhost:5001/api/creators";
+        private const string MilestoneTweetApi = "https://localhost:5001/api/milestones/tweets";
         private readonly HttpClient _client = AlsoWebUtils.Client;
         
         public async Task<CreatorDto> GetCreator(int id)
@@ -21,6 +24,23 @@ namespace GUI.DataFromWeb
             try
             {
                 var dto = JsonConvert.DeserializeObject<CreatorDto>(content);
+                return dto;
+            }
+            catch (JsonException e)
+            {
+                Console.WriteLine("Get specific error " + e.StackTrace);
+                throw; // TODO: Throw new custom exception
+            }
+        }
+        
+        public async Task<List<MilestoneDto>> GetRecentMilestoneTweets()
+        {
+            using var request = new HttpRequestMessage(HttpMethod.Get, MilestoneTweetApi);
+            var response = await _client.SendAsync(request);
+            var content = await response.Content.ReadAsStringAsync();
+            try
+            {
+                var dto = JsonConvert.DeserializeObject <List<MilestoneDto>>(content);
                 return dto;
             }
             catch (JsonException e)

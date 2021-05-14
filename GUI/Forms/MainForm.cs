@@ -30,6 +30,7 @@ namespace GUI
         private MainStartPage mainStartPage;
         private CreatorDto _activeProfileDto;
         private List<CreatorDto> _creatorsFromService;
+        private readonly CreatorWebServiceThing _service = new CreatorWebServiceThing();
 
         public MainForm()
         {
@@ -41,18 +42,21 @@ namespace GUI
         {
             creatorTemplate_panel.Visible = true;
             allCreatorStatistics_Panel.Visible = true;
-            await loadCreatorsAndPanels();
+            var service = new CreatorWebServiceThing();
+            var creatorTask = LoadCreatorsAndPanels();
+            var tweetTask = service.GetRecentMilestoneTweets();
+            await Task.WhenAll(creatorTask, tweetTask);
             mainStartPage = new MainStartPage() {Dock = DockStyle.Fill};
-            mainStartPage.LoadData(_creatorsFromService);
+            mainStartPage.LoadData(_creatorsFromService, tweetTask.Result);
             allCreatorStatistics_Panel.Controls.Add(mainStartPage);
             mainStartPage.Show();
             allCreatorStatistics_Panel.BringToFront();
         }
 
-        public async Task loadCreatorsAndPanels()
+        public async Task LoadCreatorsAndPanels()
         {
             textbox_search.Text = "";
-            _creatorsFromService = (await new CreatorWebServiceThing().GetCreators()).OrderBy(c => c.Name).ToList();
+            _creatorsFromService = (await _service.GetCreators()).OrderBy(c => c.Name).ToList();
             listCreators();
             var match = _creatorsFromService.FirstOrDefault(c => c.Id == _activeProfileDto?.Id);
             loadActiveasd(match ?? _creatorsFromService.FirstOrDefault() ?? new CreatorDto(), false);
@@ -214,7 +218,7 @@ namespace GUI
         private void button2_Click(object sender, EventArgs e)
         {
             var result = new Popup() {StartPosition = FormStartPosition.CenterScreen}.ShowDialog();
-            if (result == DialogResult.OK) loadCreatorsAndPanels();
+            if (result == DialogResult.OK) LoadCreatorsAndPanels();
         }
 
         // private Form _activeForm = new TemplateForm();
@@ -253,7 +257,7 @@ namespace GUI
         private void picturebox_edit_Click(object sender, EventArgs e)
         {
             var result = new Popup(_activeProfileDto) {StartPosition = FormStartPosition.CenterScreen}.ShowDialog();
-            if (result == DialogResult.OK) loadCreatorsAndPanels();
+            if (result == DialogResult.OK) LoadCreatorsAndPanels();
         }
 
         private void textBox_search_TextChanged(object sender, EventArgs e)

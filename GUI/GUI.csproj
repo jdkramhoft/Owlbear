@@ -22,6 +22,12 @@
       <Compile Include="..\Owlbear\Dto\Creator\UpdateCreatorDto.cs">
         <Link>DataFromWeb\Dto\UpdateCreatorDto.cs</Link>
       </Compile>
+      <Compile Include="..\Owlbear\Dto\Milestone\MilestoneDto.cs">
+        <Link>DataFromWeb\Dto\MilestoneDto.cs</Link>
+      </Compile>
+      <Compile Include="..\Owlbear\Dto\Milestone\MilestoneTweetDto.cs">
+        <Link>DataFromWeb\Dto\MilestoneTweetDto.cs</Link>
+      </Compile>
       <Compile Include="..\Owlbear\Model\Creator.cs">
         <Link>DataFromWeb\Model\Creator.cs</Link>
       </Compile>
