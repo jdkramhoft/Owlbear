@@ -22,7 +22,7 @@ namespace Owlbear.Controller
         private readonly ICreatorService _creatorService;
         private readonly ICreatorRecordService _recordService;
 
-        public CreatorController(ILogger<CreatorController> logger,OwlbearContext context, IMapper mapper, ICreatorService creatorService, ICreatorRecordService recordService)
+        public CreatorController(ILogger<CreatorController> logger, IMapper mapper, ICreatorService creatorService, ICreatorRecordService recordService)
         {
             _logger = logger;
             _mapper = mapper;

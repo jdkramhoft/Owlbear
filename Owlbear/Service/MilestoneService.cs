@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Owlbear.Model;
+using Owlbear.Repository.Remote;
 using Owlbear.Utilities;
 using Tweetinvi;
 
@@ -13,9 +15,11 @@ namespace Owlbear.Service
         private static readonly TwitterClient TwitterClient = new TwitterClient(NetUtils.TwitterApiKey, NetUtils.TwitterApiSecret, NetUtils.TwitterAccessToken, NetUtils.TwitterAccessSecret);
         private readonly List<int> _milestones;
         private readonly HttpClient _client = NetUtils.Client;
-        
-        public MilestoneService()
+        private readonly IRemoteTwitterRepository _remoteTwitterRepository;
+
+        public MilestoneService(IRemoteTwitterRepository remoteTwitterRepository)
         {
+            _remoteTwitterRepository = remoteTwitterRepository;
             _milestones = new List<int>();
             AddMilestones(_milestones);
         }
@@ -88,6 +92,11 @@ namespace Owlbear.Service
         private async Task SendTweet(string msg)
         {
             var tweet = await TwitterClient.Tweets.PublishTweetAsync(msg);
+        }
+
+        public async Task<List<Milestone>> GetAllMilestonesAsync()
+        {
+            return (await _remoteTwitterRepository.GetTwitter("MilestoneCyan")).Tweets.Select(tweet => new Milestone(){Tweet = tweet}).ToList();
         }
     }
 }
