@@ -6,7 +6,7 @@ namespace Owlbear.Model
     public class Twitch
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int TwitterId { get; set; }
+        public int TwitchId { get; set; }
         [Required]
         public int RemoteId { get; set; }
         [Required]
@@ -25,7 +25,7 @@ namespace Owlbear.Model
         {
             return new Twitch()
             {
-                TwitterId = TwitterId, RemoteId = RemoteId, RemoteLogin = RemoteLogin, Description = Description,
+                TwitchId = TwitchId, RemoteId = RemoteId, RemoteLogin = RemoteLogin, Description = Description,
                 Followers = Followers, Handle = Handle, Views = Views, OfflineImageUrl = OfflineImageUrl,
                 ProfileImageUrl = ProfileImageUrl
             };

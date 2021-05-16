@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Owlbear.Model;
 
 namespace Owlbear.Migrations
 {
     [DbContext(typeof(OwlbearContext))]
-    partial class OwlbearContextModelSnapshot : ModelSnapshot
+    [Migration("20210516185505_TwitchIdRenamed")]
+    partial class TwitchIdRenamed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
