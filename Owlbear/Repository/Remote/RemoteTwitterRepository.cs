@@ -33,18 +33,10 @@ namespace Owlbear.Repository.Remote
             request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _bearerToken);
             var response = await _client.SendAsync(request);
             var content = await response.Content.ReadAsStringAsync();
-            try
-            {
-                var dto = JsonConvert.DeserializeObject<RemoteTwitterResponseDto>(content);
-                var twitter = _mapper.Map<Twitter>(dto);
-                twitter.Tweets = await GetRecentTweets(twitter.RemoteId);
-                return twitter;
-            }
-            catch (JsonException e)
-            {
-                throw new Exception(e.Message); // TODO: Throw new custom exception
-            }
-            
+            var dto = JsonConvert.DeserializeObject<RemoteTwitterResponseDto>(content);
+            var twitter = _mapper.Map<Twitter>(dto);
+            twitter.Tweets = await GetRecentTweets(twitter.RemoteId);
+            return twitter;
         }
 
         private async Task<List<Tweet>> GetRecentTweets(string id)
@@ -57,16 +49,9 @@ namespace Owlbear.Repository.Remote
             request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _bearerToken);
             var response = await _client.SendAsync(request);
             var content = await response.Content.ReadAsStringAsync();
-            try
-            {
-                var dto = JsonConvert.DeserializeObject<RemoteTwitterTweetsResponseDto>(content);
-                if (dto == null) throw new JsonException();
-                return _mapper.Map<List<Tweet>>(dto.data);
-            }
-            catch (JsonException e)
-            {
-                throw new Exception(e.Message); // TODO: Throw new custom exception
-            }
+            var dto = JsonConvert.DeserializeObject<RemoteTwitterTweetsResponseDto>(content);
+            if (dto == null) throw new JsonException();
+            return _mapper.Map<List<Tweet>>(dto.data);
         }
     }
 }

@@ -44,16 +44,8 @@ namespace Owlbear.Repository.Remote
             request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _bearerToken);
             var response = await _client.SendAsync(request);
             var content = await response.Content.ReadAsStringAsync();
-            try
-            {
-                var dto = JsonConvert.DeserializeObject<RemoteTwitchUserResponseDto>(content);
-                // TODO: Safe null checks and for specific necessary attributes like id with custom exception
-                return dto;
-            }
-            catch (JsonException e)
-            {
-                throw new Exception(e.Message); // TODO: Throw new custom exception
-            }
+            var dto = JsonConvert.DeserializeObject<RemoteTwitchUserResponseDto>(content);
+            return dto;
         }
 
         private async Task<RemoteTwitchFollowersResponseDto> GetFollowers(string id)
@@ -65,16 +57,8 @@ namespace Owlbear.Repository.Remote
             request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _bearerToken);
             var response = await _client.SendAsync(request);
             var content = await response.Content.ReadAsStringAsync();
-            try
-            {
-                var dto = JsonConvert.DeserializeObject<RemoteTwitchFollowersResponseDto>(content);
-                // TODO: Safe null checks and for specific necessary attributes like id with custom exception
-                return dto;
-            }
-            catch (JsonException e)
-            {
-                throw new Exception(e.Message); // TODO: Throw new custom exception
-            }
+            var dto = JsonConvert.DeserializeObject<RemoteTwitchFollowersResponseDto>(content);
+            return dto;
         }
     }
 }
