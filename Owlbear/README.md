@@ -13,4 +13,4 @@ From here on to add new migrations and update the database file to reflect the s
 
 **Configuration**
 
-TWITCH_CLIENT_ID, TWITCH_BEARER, and TWITTER_BEARER need to be set as environment variables.
+TWITCH_CLIENT_ID, TWITCH_BEARER, and TWITTER_BEARER, etc. found in Utilities.NetUtils need to be set as environment variables.
