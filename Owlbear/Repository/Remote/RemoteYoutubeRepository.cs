@@ -32,15 +32,8 @@ namespace Owlbear.Repository.Remote
             using var request = new HttpRequestMessage(HttpMethod.Get, query.ToString());
             var response = await _client.SendAsync(request);
             var content = await response.Content.ReadAsStringAsync();
-            try
-            {
-                var dto = JsonConvert.DeserializeObject<RemoteYoutubeResponseDto>(content);
-                return _mapper.Map<Youtube>(dto);
-            }
-            catch (JsonException e)
-            {
-                throw new Exception(e.Message); // TODO: Throw new custom exception
-            }
+            var dto = JsonConvert.DeserializeObject<RemoteYoutubeResponseDto>(content);
+            return _mapper.Map<Youtube>(dto);
         }
     }
 }
