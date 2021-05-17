@@ -135,10 +135,10 @@ namespace GUI
 
             if (milestoneTweets.Count > 1)
             {
-                label_quote_amount_bot.Text = milestoneTweets[1].Tweet?.Quotes.ToString();
-                label_retweet_amount_bot.Text = milestoneTweets[1].Tweet?.Retweets.ToString();
-                label_likes_amount_bot.Text = milestoneTweets[1].Tweet?.Likes.ToString();
-                label_tweet_text_twitterbot_1.Text = milestoneTweets[1].Tweet?.Text;
+                quote_text.Text = milestoneTweets[1].Tweet?.Quotes.ToString();
+                retweet_text.Text = milestoneTweets[1].Tweet?.Retweets.ToString();
+                likes_text.Text = milestoneTweets[1].Tweet?.Likes.ToString();
+                tweet_2.Text = milestoneTweets[1].Tweet?.Text;
             }
             else
             {
