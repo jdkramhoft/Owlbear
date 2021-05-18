@@ -30,7 +30,7 @@ namespace GUI
         private MainStartPage mainStartPage;
         private CreatorDto _activeProfileDto;
         private List<CreatorDto> _creatorsFromService;
-        private readonly CreatorWebServiceThing _service = new CreatorWebServiceThing();
+        private readonly CreatorWebService _service = new CreatorWebService();
 
         public MainForm()
         {
@@ -42,7 +42,7 @@ namespace GUI
         {
             creatorTemplate_panel.Visible = true;
             allCreatorStatistics_Panel.Visible = true;
-            var service = new CreatorWebServiceThing();
+            var service = new CreatorWebService();
             var creatorTask = LoadCreatorsAndPanels();
             var tweetTask = service.GetRecentMilestoneTweets();
             await Task.WhenAll(creatorTask, tweetTask);
@@ -87,7 +87,7 @@ namespace GUI
         private async void loadActiveasd(CreatorDto creator, bool forceProfileView)
         {
             var creatorIndex = _creatorsFromService.FindIndex(c => c.Id == creator.Id);
-            _creatorsFromService[creatorIndex] = await new CreatorWebServiceThing().GetCreator(creator.Id);
+            _creatorsFromService[creatorIndex] = await new CreatorWebService().GetCreator(creator.Id);
 
             creator = _creatorsFromService[creatorIndex];
             

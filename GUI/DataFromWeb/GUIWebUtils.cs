@@ -2,7 +2,7 @@
 
 namespace GUI.DataFromWeb
 {
-    public class AlsoWebUtils
+    public class GUIWebUtils
     {
         public static readonly HttpClient Client = new();
     }

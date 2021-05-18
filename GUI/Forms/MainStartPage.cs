@@ -88,7 +88,7 @@ namespace GUI
                 if(creator.Twitch != null)
                     creatorsWithTwitch.Add(creator);
             }
-            creatorsWithTwitch.Sort((c1, c2) => c1.Twitch.Followers.CompareTo(c2.Twitch.Followers));
+            creatorsWithTwitch.Sort((c1, c2) => c2.Twitch.Followers.CompareTo(c1.Twitch.Followers));
             return creatorsWithTwitch;
         }
 
@@ -100,7 +100,7 @@ namespace GUI
                 if(creator.Youtube != null)
                     creatorsWithYoutube.Add(creator);
             }
-            creatorsWithYoutube.Sort((c1, c2) => c1.Youtube.Subscribers.CompareTo(c2.Youtube.Subscribers));
+            creatorsWithYoutube.Sort((c1, c2) => c2.Youtube.Subscribers.CompareTo(c1.Youtube.Subscribers));
             return creatorsWithYoutube;
         }
 
@@ -112,7 +112,7 @@ namespace GUI
                 if(creator.Twitter != null)
                     creatorsWithTwitter.Add(creator);
             }
-            creatorsWithTwitter.Sort((c1, c2) => c1.Twitter.Followers.CompareTo(c2.Twitter.Followers));
+            creatorsWithTwitter.Sort((c1, c2) => c2.Twitter.Followers.CompareTo(c1.Twitter.Followers));
             return creatorsWithTwitter;
         }
 

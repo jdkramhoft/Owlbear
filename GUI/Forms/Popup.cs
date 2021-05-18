@@ -58,7 +58,7 @@ namespace GUI
                 if (yt_name_write.Text.Length > 0) dto.YoutubeHandle = yt_name_write.Text;
                 if (twitter_name_write.Text.Length > 0) dto.TwitterHandle = twitter_name_write.Text;
                 if (twitch_write_name.Text.Length > 0) dto.TwitchHandle = twitch_write_name.Text;
-                resultDTO = await new CreatorWebServiceThing().CreateCreator(dto);
+                resultDTO = await new CreatorWebService().CreateCreator(dto);
             }
             else if (!CreatingNew)
             {
@@ -67,7 +67,7 @@ namespace GUI
                 if (yt_name_write.Text.Length > 0) dto.YoutubeHandle = yt_name_write.Text;
                 if (twitter_name_write.Text.Length > 0) dto.TwitterHandle = twitter_name_write.Text;
                 if (twitch_write_name.Text.Length > 0) dto.TwitchHandle = twitch_write_name.Text;
-                resultDTO = await new CreatorWebServiceThing().UpdateCreator(Creator.Id, dto);
+                resultDTO = await new CreatorWebService().UpdateCreator(Creator.Id, dto);
             }
             
             if (resultDTO != null) DialogResult = DialogResult.OK;
@@ -78,7 +78,7 @@ namespace GUI
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete " + Creator.Name + " ?", "Warning", MessageBoxButtons.YesNo);
             if(dialogResult == DialogResult.Yes)
             {
-                var result = await new CreatorWebServiceThing().DeleteCreator(Creator.Id);
+                var result = await new CreatorWebService().DeleteCreator(Creator.Id);
                 if (result != null) DialogResult = DialogResult.OK;
             }
             else if (dialogResult == DialogResult.No)

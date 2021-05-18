@@ -10,11 +10,11 @@ using Owlbear.Dto.Milestone;
 
 namespace GUI.DataFromWeb
 {
-    public class CreatorWebServiceThing
+    public class CreatorWebService
     {
         private const string CreatorApi = "https://localhost:5001/api/creators";
         private const string MilestoneTweetApi = "https://localhost:5001/api/milestones/tweets";
-        private readonly HttpClient _client = AlsoWebUtils.Client;
+        private readonly HttpClient _client = GUIWebUtils.Client;
         
         public async Task<CreatorDto> GetCreator(int id)
         {
