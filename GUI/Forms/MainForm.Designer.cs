@@ -40,14 +40,11 @@ namespace GUI
             pictureBox_twitter_icon.Image = Image.FromFile($@"{path}\Images\twitter_icon.png");
             pictureBox_twitter_icon.Size = new Size(32,33);
             pictureBox_twitter_icon.SizeMode = PictureBoxSizeMode.StretchImage;
-
             
             pictureBox_yt_icon.Image = Image.FromFile($@"{path}\Images\yt_icon.png");
             pictureBox_yt_icon.Size = new Size(32,28);
             pictureBox_yt_icon.SizeMode = PictureBoxSizeMode.StretchImage;
             
-            
-
             picturebox_edit.Image = Image.FromFile($@"{path}\Images\edit_icon.png");
             picturebox_edit.Size = new Size(15,15);
             picturebox_edit.Location = new Point(60, 50);

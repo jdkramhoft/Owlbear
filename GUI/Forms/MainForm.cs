@@ -145,11 +145,54 @@ namespace GUI
             {
                 picturebox_main_creator_image.Load(creator.Twitch?.ProfileImageUrl);
                 
+                // System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
+                // gp.AddEllipse(0, 0, picturebox_main_creator_image.Width - 3, picturebox_main_creator_image.Height - 3);
+                // Region r = new Region(gp);
+                // picturebox_main_creator_image.Region = r;
+                // picturebox_main_creator_image.SizeMode = PictureBoxSizeMode.StretchImage;
+            // }
+            // 
+                
+                picturebox_creator_twitter_image_1.Image = Image.FromFile($@"{path}\Images\unknown_image.png");
+                
                 System.Drawing.Drawing2D.GraphicsPath gp1 = new System.Drawing.Drawing2D.GraphicsPath();
-                gp1.AddEllipse(0, 0, picturebox_main_creator_image.Width - 3, picturebox_main_creator_image.Height - 3);
+                gp1.AddEllipse(0, 0, picturebox_creator_twitter_image_1.Width - 3, picturebox_creator_twitter_image_1.Height - 3);
                 Region r1 = new Region(gp1);
-                picturebox_main_creator_image.Region = r1;
-                picturebox_main_creator_image.SizeMode = PictureBoxSizeMode.StretchImage;
+                picturebox_creator_twitter_image_1.Region = r1;
+                picturebox_creator_twitter_image_1.SizeMode = PictureBoxSizeMode.StretchImage;
+                
+                picturebox_creator_twitter_image_2.Image = Image.FromFile($@"{path}\Images\unknown_image.png");
+                
+                System.Drawing.Drawing2D.GraphicsPath gp2 = new System.Drawing.Drawing2D.GraphicsPath();
+                gp2.AddEllipse(0, 0, picturebox_creator_twitter_image_2.Width - 3, picturebox_creator_twitter_image_2.Height - 3);
+                Region r2 = new Region(gp2);
+                picturebox_creator_twitter_image_2.Region = r2;
+                picturebox_creator_twitter_image_2.SizeMode = PictureBoxSizeMode.StretchImage;
+                
+                picturebox_creator_twitter_image_3.Image = Image.FromFile($@"{path}\Images\unknown_image.png");
+                
+                System.Drawing.Drawing2D.GraphicsPath gp3 = new System.Drawing.Drawing2D.GraphicsPath();
+                gp3.AddEllipse(0, 0, picturebox_creator_twitter_image_3.Width - 3, picturebox_creator_twitter_image_3.Height - 3);
+                Region r3 = new Region(gp3);
+                picturebox_creator_twitter_image_3.Region = r3;
+                picturebox_creator_twitter_image_3.SizeMode = PictureBoxSizeMode.StretchImage;
+                
+                first_quote_creator_amount.Text = "0";
+                second_tweet_quote_amount.Text = "0";
+                third_tweet_quote_amount.Text = "0";
+                
+                newest_tweet.Text = "No Tweet available";
+                second_newest_tweet.Text = "No Tweet available";
+                third_newest_tweet.Text = "No Tweet available";
+                
+                first_tweet_retweet_amount.Text = "0";
+                creator_two_retweet_amount.Text = "0";
+                third_tweet_retweet_amount.Text = "0";
+                
+                first_tweet_likes_amount.Text = "0";
+                second_tweet_likes_amount.Text = "0";
+                third_tweet_likes_amount.Text = "0";
+                
             }
             else
             {
@@ -182,7 +225,7 @@ namespace GUI
                 first_quote_creator_amount.Text = "0";
                 second_tweet_quote_amount.Text = "0";
                 third_tweet_quote_amount.Text = "0";
-
+                
                 newest_tweet.Text = "No Tweet available";
                 second_newest_tweet.Text = "No Tweet available";
                 third_newest_tweet.Text = "No Tweet available";
@@ -194,7 +237,6 @@ namespace GUI
                 first_tweet_likes_amount.Text = "0";
                 second_tweet_likes_amount.Text = "0";
                 third_tweet_likes_amount.Text = "0";
-                
             }
 
             var na = "Not available";
