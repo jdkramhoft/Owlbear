@@ -1,5 +1,5 @@
 ## About
-![Image of API Swagger UI](https://github.com/jdkramhoft/Owlbear/blob/master/images/swagger.JPG?raw=true)
+![Image of API Swagger UI](https://github.com/jdkramhoft/Owlbear/blob/master/images/swagger.png?raw=true)
 
 text about the app
 
@@ -8,7 +8,7 @@ text about the app
 ## GUI
 
 includes winforms gui home page and creator page
-![Image of Application GUI Home](https://github.com/jdkramhoft/Owlbear/blob/master/images/startpage.JPG?raw=true)
-![Image of Application GUI Creator Page](https://github.com/jdkramhoft/Owlbear/blob/master/images/creatorpage.JPG?raw=true)
+![Image of Application GUI Home](https://github.com/jdkramhoft/Owlbear/blob/master/images/startpage.png?raw=true)
+![Image of Application GUI Creator Page](https://github.com/jdkramhoft/Owlbear/blob/master/images/creatorpage.png?raw=true)
 
 
