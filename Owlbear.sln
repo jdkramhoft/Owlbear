@@ -2,8 +2,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Owlbear", "Owlbear\Owlbear.csproj", "{913823F1-9F14-4FB4-849F-26322EE8CFEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "GUI\GUI.csproj", "{B364E617-7B28-4C96-8EC6-045FE4DB1092}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Updater", "Updater\Updater.csproj", "{09002C46-8319-4E61-966D-C6EA00F9BD09}"
 EndProject
 Global
